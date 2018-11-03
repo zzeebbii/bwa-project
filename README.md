@@ -75,18 +75,29 @@ For instructions on what to add under these headers, see the course project assi
 ## Technological considerations
 
 ### Django apps in your Django project
+- [ ] Profile app
+- [ ] Friendship app
+- [ ] Events app
+- [ ] Discussions app
+- [ ] AJAX app **(It will handle all ajax functionalities)**
 
 ### Needed Django models and their attributes
+**TBD**
 
 ### URIs
+**TBD**
 
 ### Needed Django views and templates
+**TBD**
 
 ### Heroku deployment
+Dummy deployemnt is already done on Heroku at following URL
+***[Let Connect App for BWA028]***(https://dashboard.heroku.com/apps/let-connect)
 
 ## Testing
-
+**TBD**
 ## Project timetable and division of work
+**TBD**
 
 >>>
 _`The Django project in this repo (bwa2018djangoproject), was created for the groups using Heroku Django Starter Template. The information about it left here for educational purposes. The groups are free to remove this text and all the text below it from this file.`_
