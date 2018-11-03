@@ -11,6 +11,12 @@ The headers that must be present in this document are shown here. They were copi
 For instructions on what to add under these headers, see the course project assignment document, [Appendix 2: Initial project plan document](https://docs.google.com/document/d/1iJ4z8dQzUWht0ABX18RXa5Rp8hY76vcMJvBbxODs3PE/edit?usp=sharing#heading=h.m6xhgmo8x8lz)
 
 ## Course project group information
+### Project Name: Let Connect
+| Student Name | Student Number |
+| -------- | -------- |
+| Muhammad Zohaib Aslam   | 281690   |
+| Usama Rafique   | 281800   |
+| Morvan Nozahic   | 282964   |
 
 ## Must have features
 
