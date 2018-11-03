@@ -19,6 +19,37 @@ For instructions on what to add under these headers, see the course project assi
 | Morvan Nozahic   | 282964   |
 
 ## Must have features
+- [x] Use a virtual environment
+- [ ] Validate all HTML & CSS
+- [ ] Set **debug = false** at final deployment
+- [ ] Description of the web service data and functionality
+    - [ ] Users
+        - [ ] Admin User
+        - [x] Normal Users
+    - [ ] User profile pages
+        - [ ] Add Status with option to add comments to status
+        - [ ] Update profile information
+        - [ ] Show friends
+        - [ ] Show events
+        - [ ] Show groups
+        - [ ] Show discussions
+    - [ ] Friendship
+        - [ ] Add new friend
+        - [ ] View friend requests
+        - [ ] Unfriend a friend
+    - [ ] Discussions
+        - [ ] Start a discussion
+        - [ ] Add friends to a discussion
+        - [ ] Comments on discussion
+    - [ ] Events
+        - [ ] Create and event
+        - [ ] View all events
+        - [ ] Invite a friend to event
+- [x] GitLab issue board for handling tasks
+- [ ] Small and precise commit messages
+- [ ] Track project progress with time
+- [x] Deploy site to heroku
+    - [ ] Deploy often to heorku during development
 
 ## Planned +2 features
 
