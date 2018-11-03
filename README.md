@@ -11,7 +11,7 @@ The headers that must be present in this document are shown here. They were copi
 For instructions on what to add under these headers, see the course project assignment document, [Appendix 2: Initial project plan document](https://docs.google.com/document/d/1iJ4z8dQzUWht0ABX18RXa5Rp8hY76vcMJvBbxODs3PE/edit?usp=sharing#heading=h.m6xhgmo8x8lz)
 
 ## Course project group information
-### Project Name: Let Connect
+### Project Name: [Let Connect](https://let-connect.herokuapp.com/)
 | Student Name | Student Number |
 | -------- | -------- |
 | Muhammad Zohaib Aslam   | 281690   |
@@ -92,7 +92,7 @@ For instructions on what to add under these headers, see the course project assi
 
 ### Heroku deployment
 Dummy deployemnt is already done on Heroku at following URL
-**[Let Connect App for BWA028](https://dashboard.heroku.com/apps/let-connect)**
+**[Let Connect App for BWA028](https://let-connect.herokuapp.com/)**
 
 ## Testing
 **TBD**
