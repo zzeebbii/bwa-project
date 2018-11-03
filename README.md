@@ -53,6 +53,23 @@ For instructions on what to add under these headers, see the course project assi
 
 ## Planned +2 features
 
+### One star features
+- [x] Exceptional quality of the initial project plan document
+- [ ] Mid-project check-in shows faster than expected progress **(Planned)**
+- [ ] Make users, events and discussions searchable
+- [ ] Email validation on sign-up
+- [ ] Reset forgotten password
+- [ ] Use separate Django apps for different parts of your project
+
+### Two Star features
+- [ ] Notifications
+- [ ] Use PostgreSQL as database
+- [ ] Using Bootstrap for mobile friendliness
+- [ ] 3rd party login
+
+### Three Star features
+- [ ] Creative use of any Django app to implement some bonus feature
+
 ## Pages and navigation
 
 ## Technological considerations
