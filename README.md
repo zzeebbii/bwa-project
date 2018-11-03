@@ -82,13 +82,13 @@ For instructions on what to add under these headers, see the course project assi
 - [ ] AJAX app **(It will handle all ajax functionalities)**
 
 ### Needed Django models and their attributes
-**TBD**
+TBD
 
 ### URIs
-**TBD**
+TBD
 
 ### Needed Django views and templates
-**TBD**
+TBD
 
 ### Heroku deployment
 Dummy deployemnt is already done on Heroku at following URL
