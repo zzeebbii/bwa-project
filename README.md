@@ -92,7 +92,7 @@ For instructions on what to add under these headers, see the course project assi
 
 ### Heroku deployment
 Dummy deployemnt is already done on Heroku at following URL
-***[Let Connect App for BWA028]***(https://dashboard.heroku.com/apps/let-connect)
+**[Let Connect App for BWA028](https://dashboard.heroku.com/apps/let-connect)**
 
 ## Testing
 **TBD**
