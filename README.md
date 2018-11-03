@@ -97,7 +97,6 @@ Dummy deployemnt is already done on Heroku at following URL
 ## Testing
 **TBD**
 ## Project timetable and division of work
-**TBD**
 
 >>>
 _`The Django project in this repo (bwa2018djangoproject), was created for the groups using Heroku Django Starter Template. The information about it left here for educational purposes. The groups are free to remove this text and all the text below it from this file.`_
