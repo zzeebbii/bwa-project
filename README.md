@@ -71,6 +71,8 @@ For instructions on what to add under these headers, see the course project assi
 - [ ] Creative use of any Django app to implement some bonus feature
 
 ## Pages and navigation
+TBD. Pages and navigation depends on the finalized views, models and templates.
+They will be added once we finalize those.
 
 ## Technological considerations
 
@@ -82,16 +84,16 @@ For instructions on what to add under these headers, see the course project assi
 - [ ] AJAX app **(It will handle all ajax functionalities)**
 
 ### Needed Django models and their attributes
-TBD
+TBD. We are working on it, it will be added once decided.
 
 ### URIs
-TBD
+TBD. We are working on it, it will be added once decided.
 
 ### Needed Django views and templates
-TBD
+TBD. We are working on it, it will be added once decided.
 
 ### Heroku deployment
-Dummy deployemnt is already done on Heroku at following URL
+Dummy deployment is already done on Heroku at following URL
 **[Let Connect App for BWA028](https://let-connect.herokuapp.com/)**
 
 ## Testing
