@@ -11,27 +11,93 @@ The headers that must be present in this document are shown here. They were copi
 For instructions on what to add under these headers, see the course project assignment document, [Appendix 2: Initial project plan document](https://docs.google.com/document/d/1iJ4z8dQzUWht0ABX18RXa5Rp8hY76vcMJvBbxODs3PE/edit?usp=sharing#heading=h.m6xhgmo8x8lz)
 
 ## Course project group information
+### Project Name: [Let Connect](https://let-connect.herokuapp.com/)
+| Student Name | Student Number |
+| -------- | -------- |
+| Muhammad Zohaib Aslam   | 281690   |
+| Usama Rafique   | 281800   |
+| Morvan Nozahic   | 282964   |
 
 ## Must have features
+- [x] Use a virtual environment
+- [ ] Validate all HTML & CSS
+- [ ] Set **debug = false** at final deployment
+- [ ] Description of the web service data and functionality
+    - [ ] **Users**
+        - [ ] Admin User
+        - [x] Normal Users
+    - [ ] **User profile pages**
+        - [ ] Add Status with option to add comments to status
+        - [ ] Update profile information
+        - [ ] Show friends
+        - [ ] Show events
+        - [ ] Show groups
+        - [ ] Show discussions
+    - [ ] **Friendship**
+        - [ ] Add new friend
+        - [ ] View friend requests
+        - [ ] Unfriend a friend
+    - [ ] **Discussions**
+        - [ ] Start a discussion
+        - [ ] Add friends to a discussion
+        - [ ] Comments on discussion
+    - [ ] **Events**
+        - [ ] Create and event
+        - [ ] View all events
+        - [ ] Invite a friend to event
+- [x] GitLab issue board for handling tasks
+- [ ] Small and precise commit messages
+- [ ] Track project progress with time
+- [x] Deploy site to heroku
+    - [ ] Deploy often to heorku during development
 
 ## Planned +2 features
 
+### One star features
+- [x] Exceptional quality of the initial project plan document
+- [ ] Mid-project check-in shows faster than expected progress **(Planned)**
+- [ ] Make users, events and discussions searchable
+- [ ] Email validation on sign-up
+- [ ] Reset forgotten password
+- [ ] Use separate Django apps for different parts of your project
+
+### Two Star features
+- [ ] Notifications
+- [ ] Use PostgreSQL as database
+- [ ] Using Bootstrap for mobile friendliness
+- [ ] 3rd party login
+
+### Three Star features
+- [ ] Creative use of any Django app to implement some bonus feature
+
 ## Pages and navigation
+TBD. Pages and navigation depends on the finalized views, models and templates.
+They will be added once we finalize those.
 
 ## Technological considerations
 
 ### Django apps in your Django project
+- [ ] Profile app
+- [ ] Friendship app
+- [ ] Events app
+- [ ] Discussions app
+- [ ] AJAX app **(It will handle all ajax functionalities)**
 
 ### Needed Django models and their attributes
+TBD. We are working on it, it will be added once decided.
 
 ### URIs
+TBD. We are working on it, it will be added once decided.
 
 ### Needed Django views and templates
+TBD. We are working on it, it will be added once decided.
 
 ### Heroku deployment
+Dummy deployment is already done on Heroku at following URL
+**[Let Connect App for BWA028](https://let-connect.herokuapp.com/)**
 
 ## Testing
-
+**TBD**
 ## Project timetable and division of work
 
 >>>
