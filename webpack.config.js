@@ -4,7 +4,7 @@ const path = require('path');
 module.exports = {
     "entry": [__dirname + "/webpack/index.js", __dirname + "/webpack/sass/main.scss"],
     "output": {
-        "path": path.resolve(__dirname, 'staticfiles'),
+        "path": path.resolve(__dirname, 'webpack/dist'),
         "filename": "js/bundle.js"
     },
     "module": {
