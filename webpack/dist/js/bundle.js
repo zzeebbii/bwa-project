@@ -247,7 +247,7 @@ eval("var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!\n * jQ
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("window.$ = window.jQuery = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\r\n__webpack_require__(/*! bootstrap */ \"./node_modules/bootstrap/dist/js/npm.js\");\n\n//# sourceURL=webpack:///./webpack/index.js?");
+eval("window.$ = window.jQuery = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\r\n__webpack_require__(/*! bootstrap */ \"./node_modules/bootstrap/dist/js/npm.js\");\r\n\r\n__webpack_require__(/*! ./sass/main.scss */ \"./webpack/sass/main.scss\");\n\n//# sourceURL=webpack:///./webpack/index.js?");
 
 /***/ }),
 
@@ -263,13 +263,13 @@ eval("module.exports = __webpack_require__.p + \"css/main.css\";\n\n//# sourceUR
 /***/ }),
 
 /***/ 0:
-/*!*********************************************************!*\
-  !*** multi ./webpack/index.js ./webpack/sass/main.scss ***!
-  \*********************************************************/
+/*!********************************!*\
+  !*** multi ./webpack/index.js ***!
+  \********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("__webpack_require__(/*! D:\\TUT\\Semester 1\\Period 1\\ELT-41206 Basics of WC\\Project/webpack/index.js */\"./webpack/index.js\");\nmodule.exports = __webpack_require__(/*! D:\\TUT\\Semester 1\\Period 1\\ELT-41206 Basics of WC\\Project/webpack/sass/main.scss */\"./webpack/sass/main.scss\");\n\n\n//# sourceURL=webpack:///multi_./webpack/index.js_./webpack/sass/main.scss?");
+eval("module.exports = __webpack_require__(/*! D:\\TUT\\Semester 1\\Period 1\\ELT-41206 Basics of WC\\Project/webpack/index.js */\"./webpack/index.js\");\n\n\n//# sourceURL=webpack:///multi_./webpack/index.js?");
 
 /***/ })
 

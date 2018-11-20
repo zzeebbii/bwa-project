@@ -2,10 +2,10 @@ const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
-    "entry": [__dirname + "/webpack/index.js", __dirname + "/webpack/sass/main.scss"],
+    "entry": [__dirname + "/webpack/index.js"],
     "output": {
         "path": path.resolve(__dirname, 'webpack/dist'),
-        "filename": "js/bundle.js"
+        "filename": "js/bundle.js",
     },
     "module": {
         "rules": [
@@ -22,7 +22,7 @@ module.exports = {
                         loader: 'extract-loader'
                     },
                     {
-                        loader: 'css-loader?-url'
+                        loader: 'css-loader'
                     },
                     {
                         loader: 'postcss-loader'
@@ -31,6 +31,13 @@ module.exports = {
                         loader: 'sass-loader'
                     }
                 ]
+            },
+            {
+                test: /\.woff($|\?)|\.woff2($|\?)|\.ttf($|\?)|\.eot($|\?)|\.svg($|\?)/,
+                loader: 'file-loader',
+                options: {
+                    name: 'fonts/[name].[ext]',
+                }
             }
         ]
     },
