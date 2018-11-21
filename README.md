@@ -84,7 +84,8 @@ They will be added once we finalize those.
 - [ ] AJAX app **(It will handle all ajax functionalities)**
 
 ### Needed Django models and their attributes
-TBD. We are working on it, it will be added once decided.
+Here's our Entity Relationship Diagram for models:
+![alt text](Documentation/ERD.jpeg)
 
 ### URIs
 TBD. We are working on it, it will be added once decided.
