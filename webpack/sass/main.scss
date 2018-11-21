@@ -6,7 +6,6 @@ html,body {
 $brand-color : #7282f5;
 .login {
   margin-top: 100px;
-  color: #fff;
   #login-title {
     background-color: $brand-color;
     color: #fff;
@@ -20,5 +19,11 @@ $brand-color : #7282f5;
   #social-google {
     background-color: #EA4335;
     border-color: unset;
+  }
+}
+ul {
+  &.messages {
+    list-style: none;
+    padding: 0;
   }
 }

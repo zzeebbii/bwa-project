@@ -6758,8 +6758,7 @@ html, body {
   font-family: Roboto, Helvetica, sans-serif; }
 
 .login {
-  margin-top: 100px;
-  color: #fff; }
+  margin-top: 100px; }
   .login #login-title {
     background-color: #7282f5;
     color: #fff;
@@ -6769,3 +6768,7 @@ html, body {
   .login #social-google {
     background-color: #EA4335;
     border-color: unset; }
+
+ul.messages {
+  list-style: none;
+  padding: 0; }
