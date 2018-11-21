@@ -89,13 +89,15 @@ Here's our Entity Relationship Diagram for models:
 
 ![alt text](Documentation/ERD.jpeg)
 
-* These models are not finalized. It will be updated as we add more features
+**These models are not finalized. It will be updated as we add more features**
 
 ### URIs
-TBD. We are working on it, it will be added once decided.
-
+- [x] https://let-connect.herokuapp.com/login
+- [x] https://let-connect.herokuapp.com/profile
 ### Needed Django views and templates
-TBD. We are working on it, it will be added once decided.
+- [ ] **Views**
+    - [x] login.html
+    - [x] profile.html
 
 ### Heroku deployment
 Dummy deployment is already done on Heroku at following URL
