@@ -85,7 +85,11 @@ They will be added once we finalize those.
 
 ### Needed Django models and their attributes
 Here's our Entity Relationship Diagram for models:
+
+
 ![alt text](Documentation/ERD.jpeg)
+
+* These models are not finalized. It will be updated as we add more features
 
 ### URIs
 TBD. We are working on it, it will be added once decided.
