@@ -1,7 +1,8 @@
-@import '../../node_modules/bootstrap/dist/css/bootstrap.css';
-
 html,body {
   font-family: Roboto, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #E9EBEE;
 }
 $brand-color : #7282f5;
 .login {
@@ -27,3 +28,14 @@ ul {
     padding: 0;
   }
 }
+.navbar.navbar-default {
+  background-color: $brand-color;
+  margin-top: 0;
+  border: none;
+  border-radius: 0;
+
+  .navbar-brand {
+    color: #fff;
+  }
+}
+

@@ -28,4 +28,4 @@ def logout_user(request):
 
 @login_required
 def profile(request):
-    return HttpResponse("This is a profile page");
+    return render(request, 'profile.html')
