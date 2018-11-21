@@ -10,21 +10,21 @@ class Profile(models.Model):
     phone=models.TextField(max_length=20, blank=True)
 
 class Friendship(models.Model):
-    user=models.ForeignKey(User, on_delete=models.CASCADE)
-    req_from=models.IntegerField()
-    req_to=models.IntegerField()
-    is_accepted=models.SmallIntegerField()
-    datetime=models.DateTimeField()
+    user=models.OneToOneField(User, on_delete=models.CASCADE)
+    req_from=models.PositiveIntegerField()
+    req_to=models.PositiveIntegerField()
+    is_accepted=models.PositiveSmallIntegerField()
+    datetime=models.DateTimeField(auto_now_add=True, blank=True)
 
 class Status(models.Model):
-    user=models.ForeignKey(User, on_delete=models.CASCADE)
+    user=models.OneToOneField(User, on_delete=models.CASCADE)
     status_text=models.TextField()
-    status_time=models.DateTimeField()
-    is_public=models.BooleanField()
-    likes=models.TextField()
+    status_time=models.DateTimeField(auto_now_add=True, blank=True)
+    is_public=models.BooleanField(default=True)
+    likes=models.PositiveIntegerField(default=0)
 
 class Comments(models.Model):
-    status=models.ForeignKey(Status, on_delete=models.CASCADE)
+    status=models.OneToOneField(Status, on_delete=models.CASCADE)
     comment_text=models.TextField()
-    comment_by=models.IntegerField()
-    datetime=models.DateTimeField()
+    comment_by=models.PositiveIntegerField()
+    datetime=models.DateTimeField(auto_now_add=True, blank=True)
