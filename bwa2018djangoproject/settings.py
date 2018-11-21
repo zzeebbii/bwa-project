@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # http://whitenoise.evans.io/en/stable/django.html#using-whitenoise-in-development
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
+    'user',
 ]
 
 MIDDLEWARE = [
@@ -83,13 +84,15 @@ DATABASES = {
         # The default database that "ships with" Django is sqliteself.
         # Two lines under this defines the database. If your group uses
         # PostgreSQL, comment these lines out.
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 
         # If your group uses PostgreSQL comment out two lines under this,
         # and add other needed settings.
-        #'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        #'NAME': 'bwa2018djangoproject'
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'bwa2018djangoproject',
+        'USER': 'bwaproject',
+        'PASSWORD': 'bwaproject',
         # if you want to define user, password etc.
         # do it here
     }
@@ -137,7 +140,12 @@ STATIC_URL = '/static/'
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = [
     os.path.join(PROJECT_ROOT, 'static'),
+    os.path.join(BASE_DIR, 'webpack/dist/')
 ]
+
+# Default Login URL
+LOGIN_URL = '/login'
+LOGOUT_REDIRECT_URL = '/'
 
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
