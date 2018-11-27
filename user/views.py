@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.http import request
 from django.http import HttpResponse
+from .forms import SignUpForm
 
 
 # Create your views here.
@@ -28,7 +29,21 @@ def logout_user(request):
 
 
 def signup(request):
-    return render(request,'signup.html')
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            user.refresh_from_db()  # load the profile instance created by the signal
+            user.profile.email = form.cleaned_data.get('email')
+            user.profile.realname = form.cleaned_data.get('realname')
+            user.save()
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=user.username, password=raw_password)
+            login(request, user)
+            return render('profile.html')
+    else:
+        form = SignUpForm()
+    return render(request, 'signup.html', {'form': form})
 
 @login_required
 def profile(request):
