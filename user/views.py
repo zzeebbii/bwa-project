@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.http import request
 from django.http import HttpResponse
-from .forms import SignUpForm
+from .forms import SignUpForm, EditProfileForm
 
 
 # Create your views here.
@@ -34,13 +34,13 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             user.refresh_from_db()  # load the profile instance created by the signal
-            user.profile.email = form.cleaned_data.get('email')
+            #user.profile.email = form.cleaned_data.get('email')
             user.profile.realname = form.cleaned_data.get('realname')
             user.save()
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=user.username, password=raw_password)
             login(request, user)
-            return render('profile.html')
+            return redirect('profile')
     else:
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})
@@ -48,3 +48,17 @@ def signup(request):
 @login_required
 def profile(request):
     return render(request, 'profile.html')
+
+
+
+@login_required
+def edit_profile(request):
+    if request.method == 'POST':
+        form = EditProfileForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            return redirect('profile')
+
+    else:
+        form = EditProfileForm(instance=request.user)
+        return render(request, 'edit_profile.html', {'form': form})
