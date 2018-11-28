@@ -4,8 +4,21 @@ from django.contrib.auth.models import User
 
 
 class SignUpForm(UserCreationForm):
-    email = forms.EmailField(max_length=254, required=True, help_text='Required. Inform a valid email address.')
-    realname=forms.CharField(max_length=30, required=True, help_text='Mandatory.')
+    username=forms.CharField(max_length=30, required=True,
+    widget=forms.TextInput(attrs={'class':'form-control'}))
+
+
+    email = forms.EmailField(max_length=254, required=True,
+    widget=forms.TextInput(attrs={'class':'form-control'}))
+
+    realname=forms.CharField(max_length=30, required=True,
+    widget=forms.TextInput(attrs={'class':'form-control'}))
+
+    Password=forms.CharField(max_length=30, required=True,
+    widget=forms.PasswordInput(attrs={'class':'form-control'}))
+
+    Confirm_Password=forms.CharField(max_length=30, required=True,
+    widget=forms.PasswordInput(attrs={'class':'form-control'}))
 
 
     class Meta:
@@ -15,11 +28,20 @@ class SignUpForm(UserCreationForm):
 
 
 class EditProfileForm(UserChangeForm):
-    realname=forms.CharField(max_length=30, required=True, help_text='Mandatory.')
-    dob=forms.DateField()
-    country=forms.CharField(max_length=300)
-    city=forms.CharField(max_length=30)
-    phone=forms.CharField(max_length=20)
+    realname=forms.CharField(max_length=30,
+    widget=forms.TextInput(attrs={'class':'form-control'}))
+
+    dob=forms.DateField(widget=forms.DateInput())
+
+    country=forms.CharField(max_length=30,
+    widget=forms.TextInput(attrs={'class':'form-control'}))
+
+    city=forms.CharField(max_length=30,
+    widget=forms.TextInput(attrs={'class':'form-control'}))
+
+    phone=forms.CharField(max_length=20,
+    widget=forms.TextInput(attrs={'class':'form-control'}))
+
     class Meta:
         model=User
         fields= ('realname','city','country','phone','dob',)
