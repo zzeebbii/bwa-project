@@ -12,6 +12,6 @@
     <p>Country: {{user.profile.country}}</p>
     <p>Phone: {{user.profile.phone}}</p>
 </div>
-
+<a href="{% url 'editprofile' %}"><button type="submit">Edit Profile Info</button></a>
 
 {% endblock contents %}

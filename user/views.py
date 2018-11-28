@@ -47,7 +47,12 @@ def signup(request):
 
 @login_required
 def profile(request):
-    return render(request, 'profile.html')
+    return render(request, 'profile_page.html')
+
+
+@login_required
+def profile_info(request):
+    return render(request, 'profile_info.html')
 
 
 
