@@ -14,12 +14,6 @@ class SignUpForm(UserCreationForm):
     realname=forms.CharField(max_length=30, required=True,
     widget=forms.TextInput(attrs={'class':'form-control'}))
 
-    Password=forms.CharField(max_length=30, required=True,
-    widget=forms.PasswordInput(attrs={'class':'form-control'}))
-
-    Confirm_Password=forms.CharField(max_length=30, required=True,
-    widget=forms.PasswordInput(attrs={'class':'form-control'}))
-
 
     class Meta:
         model = User
