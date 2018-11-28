@@ -16,6 +16,10 @@ class SignUpForm(UserCreationForm):
 
 class EditProfileForm(UserChangeForm):
     realname=forms.CharField(max_length=30, required=True, help_text='Mandatory.')
+    dob=forms.DateField()
+    country=forms.CharField(max_length=300)
+    city=forms.CharField(max_length=30)
+    phone=forms.CharField(max_length=20)
     class Meta:
         model=User
-        exclude= ()
+        fields= ('realname','city','country','phone','dob',)

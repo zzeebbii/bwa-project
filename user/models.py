@@ -9,9 +9,12 @@ class Profile(models.Model):
     realname=models.CharField(max_length=30, blank=True)
     email=models.EmailField(max_length=254, blank=True)
     dob=models.DateField(null=True)
-    country=models.TextField(max_length=100, blank=True)
-    city=models.TextField(max_length=100, blank=True)
-    phone=models.TextField(max_length=20, blank=True)
+    country=models.CharField(max_length=300, blank=True)
+    city=models.CharField(max_length=30, blank=True)
+    phone=models.CharField(max_length=20, blank=True)
+
+    def _str_(self):
+        return self.user.username
 
 @receiver(post_save, sender=User)
 def update_user_profile(sender, instance, created, **kwargs):

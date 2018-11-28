@@ -56,9 +56,16 @@ def edit_profile(request):
     if request.method == 'POST':
         form = EditProfileForm(request.POST, instance=request.user)
         if form.is_valid():
-            form.save()
+            user = form.save()
+            user.refresh_from_db()  # load the profile instance created by the signal
+            user.profile.dob = form.cleaned_data.get('dob')
+            user.profile.realname = form.cleaned_data.get('realname')
+            user.profile.city = form.cleaned_data.get('city')
+            user.profile.country = form.cleaned_data.get('country')
+            user.profile.phone = form.cleaned_data.get('phone')
+            user.save()
             return redirect('profile')
 
     else:
         form = EditProfileForm(instance=request.user)
-        return render(request, 'edit_profile.html', {'form': form})
+    return render(request, 'edit_profile.html', {'form': form})
