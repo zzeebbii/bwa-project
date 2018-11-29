@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+  <head>
+
+    <title>Let Connnect Sign in form</title>
+    <!-- <link rel="icon" type="image/png" href="images/favicon.png" /> -->
+    <link rel="icon" href="bootstrap/favicon/favicon.ico" type="image/x-icon">
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap/css/style.css" rel="stylesheet">
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+
+    <!--[if lt IE 9]>
+
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
+    <![endif]-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+
+    <h1>Let Connect</h1>
+
+
+<form class="form-horizontal">
+<fieldset>
+
+  <div class="container">
+    <div class="form-group">
+        <div class="row">
+          <label class="col-sm-2 control-label" for="textinput">Name</label>
+          <div class="col-sm-4">
+            <input id="textinput" name="textinput" type="text" placeholder="Enter your firstname here" class="form-control input-md">
+          </div>
+          <label class="col-sm-2 control-label" for="textinput">Firstname</label>
+          <div class="col-sm-4">
+            <input id="textinput" name="textinput" type="text" placeholder="Enter your name here" class="form-control input-md">
+          </div>
+        </div>
+      </div>
+
+
+    <!-- Password input-->
+    <div class="container">
+      <div class="row">
+        <div class="form-group">
+          <label class="col-md-2 control-label" for="passwordinput">New password</label>
+          <div class="col-md-3">
+            <input id="textinput" name="textinput" type="text" placeholder="Choose a password" class="form-control input-md">
+          </div>
+      <!-- File Button -->
+          <label class=" col-md-3 control-label" for="filebutton">Profile picture</label>
+          <div class="col-md-3">
+            <input id="filebutton" name="filebutton" class="input-file" type="file">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <label class="col-md-12 control-label"></label>
+    </div>
+    <!-- Multiple Radios (inline) -->
+    <div class="container">
+      <div class="row">
+        <div class="form-group">
+          <label class="col-md-2 control-label" for="radios">Gender </label>
+          <div class="col-md-4">
+            <label class="radio-inline" for="radios-0">
+              <input type="radio" name="radios" id="radios-0" value="F" checked="checked">
+              F
+            </label>
+            <label class="radio-inline" for="radios-1">
+              <input type="radio" name="radios" id="radios-1" value="M">
+              M
+            </label>
+            <label class="radio-inline" for="radios-2">
+              <input type="radio" name="radios" id="radios-2" value="Other">
+              Other
+            </label>
+          </div>
+        </div>
+      </div>
+<!-- Biography -->
+      <label class="col-md-offset-2 col-md-4 control-label" for="textarea">Biography</label>
+      <div class="col-md-4">
+        <textarea class="form-control" id="textarea" name="textarea" placeholder="You can write a text to describe you quickly"></textarea>
+      </div>
+    </div>
+
+    <!-- Button -->
+
+      <label class="col-md-4 control-label" for="singlebutton"></label>
+      <div class="col-md-4">
+        <button id="singlebutton" name="singlebutton" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+
+</fieldset>
+</form>
+<label class="col-md-12 control-label"></label>
+
+<footer class="row">
+  <div class="col-md-12">
+    <div class="col-md-6">
+        <label class="col-md-12 control-label" for="textarea">How about us?</label>
+        <label class="col-md-12 control-label" for="textarea">Contact us</label>
+        <label class="col-md-12 control-label" for="textarea">security</label>
+    </div>
+    <div class="col-md-6">
+        <label class="col-md-12 control-label" for="textarea">General conditions</label>
+        <label class="col-md-12 control-label" for="textarea">Privacy</label>
+        <label class="col-md-12 control-label" for="textarea">Helps</label>
+    </div>
+  </div>
+</footer>
+
+  </body>
+
+</html>
