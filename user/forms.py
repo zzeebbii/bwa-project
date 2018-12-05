@@ -3,6 +3,11 @@ from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth.models import User
 
 
+class LoginForm(forms.Form):
+    username = forms.CharField(max_length=30, required=True)
+    password = forms.CharField(widget=forms.PasswordInput, required=True)
+
+
 class SignUpForm(UserCreationForm):
     username=forms.CharField(max_length=30, required=True,
     widget=forms.TextInput(attrs={'class':'form-control'}))

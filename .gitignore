@@ -118,3 +118,4 @@ dmypy.json
 
 staticfiles/
 !webpack/dist/
+.vs/

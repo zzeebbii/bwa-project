@@ -23,7 +23,8 @@ urlpatterns = [
     path('', views.profile, name='home'),
     re_path(r'^login', views.login_user, name='login'),
     re_path(r'^logout', views.logout_user, name='logout'),
-    path(r'^oauth/', include('social_django.urls', namespace='social')),
+    re_path(r'^oauth/', include('social_django.urls', namespace='social')),
     path(r'user', include("user.urls")),
     path(r'friendship', include("friendship.urls")),
+    re_path(r'^discussions/', include("discussion.urls"))
 ]

@@ -29,7 +29,9 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+                <li class="{% if request.resolver_match.url_name == "discussion_list" %}active{% endif %}">
+                    <a href="{% url 'discussion_list' %}">Discussions <span class="sr-only">(current)</span></a>
+                </li>
                 <li><a href="#">Link</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -48,7 +50,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">Profile <span class="caret"></span></a>
+                       aria-expanded="false">{{ request.user.profile.real_name }} <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="{% url 'profileinfo' %}">Profile Info</a></li>
                         <li><a href="{% url 'logout' %}">Logout</a></li>
@@ -82,5 +84,23 @@
 
 </div>
 <script type="text/javascript" src="{% static "js/bundle.js" %}"></script>
+<script>
+    function csrfSafeMethod(method) {
+        // these HTTP methods do not require CSRF protection
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }
+
+    $.ajaxSetup({
+        beforeSend: function (xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            }
+        }
+    });
+</script>
+
+{% block Scripts %}
+{% endblock Scripts %}
 </body>
 </html>

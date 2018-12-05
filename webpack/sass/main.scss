@@ -1,12 +1,14 @@
-html,body {
+html, body {
   font-family: Roboto, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
   background-color: #E9EBEE;
 }
-$brand-color : #7282f5;
+
+$brand-color: #7282f5;
 .login {
   margin-top: 100px;
+
   #login-title {
     background-color: $brand-color;
     color: #fff;
@@ -22,12 +24,14 @@ $brand-color : #7282f5;
     border-color: unset;
   }
 }
+
 ul {
   &.messages {
     list-style: none;
     padding: 0;
   }
 }
+
 .navbar.navbar-default {
   background-color: $brand-color;
   margin-top: 0;
@@ -39,3 +43,104 @@ ul {
   }
 }
 
+.discussion-wrapper {
+  .user-wrapper {
+    &::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+
+    img {
+      border-radius: 50%;
+      float: left;
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      margin-right: 10px;
+    }
+
+    .user-info {
+      float: left;
+      padding-top: 10px;
+      font-size: 150%;
+
+      .time {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .discussion-text {
+    clear: both;
+    margin-top: 20px;
+    font-size: 150%;
+    border: 1px solid #dad6d6;
+    padding: 10px;
+    border-radius: 4px;
+
+    h3 {
+      margin: 0;
+    }
+  }
+
+  .comment {
+    margin-top: 10px;
+
+    &::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+
+    .img-wrapper {
+      img {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        float: left;
+        margin-right: 6px;
+      }
+    }
+
+    .comment-text {
+      .content {
+        background-color: #dadada;
+        border-radius: 25px;
+        float: left;
+        padding: 8px 16px;
+
+        .user-name {
+          &:hover {
+            text-decoration: underline;
+          }
+
+          text-decoration: none;
+          color: #365899;
+          float: left;
+          padding-right: 10px;
+          font-weight: bold;
+        }
+
+        .text {
+          float: left;
+          margin: 0;
+        }
+      }
+
+      .time {
+        clear: both;
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+}
+
+.new_comment {
+  margin-top: 10px;
+
+  input[type=text] {
+    border-radius: 20px;
+  }
+}
