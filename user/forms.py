@@ -16,18 +16,18 @@ class SignUpForm(UserCreationForm):
     email = forms.EmailField(max_length=254, required=True,
     widget=forms.TextInput(attrs={'class':'form-control'}))
 
-    realname=forms.CharField(max_length=30, required=True,
+    real_name=forms.CharField(max_length=30, required=True,
     widget=forms.TextInput(attrs={'class':'form-control'}))
 
 
     class Meta:
         model = User
-        fields = ('username', 'realname','email', 'password1', 'password2', )
+        fields = ('username', 'real_name','email', 'password1', 'password2', )
 
 
 
 class EditProfileForm(UserChangeForm):
-    realname=forms.CharField(max_length=30,
+    real_name=forms.CharField(max_length=30,
     widget=forms.TextInput(attrs={'class':'form-control'}))
 
     dob=forms.DateField(widget=forms.DateInput())
@@ -43,4 +43,4 @@ class EditProfileForm(UserChangeForm):
 
     class Meta:
         model=User
-        fields= ('realname','city','country','phone','dob',)
+        fields= ('real_name','city','country','phone','dob',)

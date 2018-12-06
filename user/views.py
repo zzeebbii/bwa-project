@@ -99,7 +99,7 @@ def edit_profile(request):
             user = form.save()
             user.refresh_from_db()  # load the profile instance created by the signal
             user.profile.dob = form.cleaned_data.get('dob')
-            user.profile.realname = form.cleaned_data.get('realname')
+            user.profile.real_name = form.cleaned_data.get('real_name')
             user.profile.city = form.cleaned_data.get('city')
             user.profile.country = form.cleaned_data.get('country')
             user.profile.phone = form.cleaned_data.get('phone')
