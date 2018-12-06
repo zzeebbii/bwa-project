@@ -27,3 +27,71 @@ ul.messages {
   border-radius: 0; }
   .navbar.navbar-default .navbar-brand {
     color: #fff; }
+
+.discussion-wrapper .user-wrapper::after {
+  content: "";
+  display: block;
+  clear: both; }
+
+.discussion-wrapper .user-wrapper img {
+  border-radius: 50%;
+  float: left;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin-right: 10px; }
+
+.discussion-wrapper .user-wrapper .user-info {
+  float: left;
+  padding-top: 10px;
+  font-size: 150%; }
+  .discussion-wrapper .user-wrapper .user-info .time {
+    text-decoration: underline; }
+
+.discussion-wrapper .discussion-text {
+  clear: both;
+  margin-top: 20px;
+  font-size: 150%;
+  border: 1px solid #dad6d6;
+  padding: 10px;
+  border-radius: 4px; }
+  .discussion-wrapper .discussion-text h3 {
+    margin: 0; }
+
+.discussion-wrapper .comment {
+  margin-top: 10px; }
+  .discussion-wrapper .comment::after {
+    content: "";
+    display: block;
+    clear: both; }
+  .discussion-wrapper .comment .img-wrapper img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    float: left;
+    margin-right: 6px; }
+  .discussion-wrapper .comment .comment-text .content {
+    background-color: #dadada;
+    border-radius: 25px;
+    float: left;
+    padding: 8px 16px; }
+    .discussion-wrapper .comment .comment-text .content .user-name {
+      text-decoration: none;
+      color: #365899;
+      float: left;
+      padding-right: 10px;
+      font-weight: bold; }
+      .discussion-wrapper .comment .comment-text .content .user-name:hover {
+        text-decoration: underline; }
+    .discussion-wrapper .comment .comment-text .content .text {
+      float: left;
+      margin: 0; }
+  .discussion-wrapper .comment .comment-text .time {
+    clear: both;
+    margin: 0;
+    padding: 0; }
+
+.new_comment {
+  margin-top: 10px; }
+  .new_comment input[type=text] {
+    border-radius: 20px; }

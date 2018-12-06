@@ -4,15 +4,20 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.http import request
 from django.http import HttpResponse
+<<<<<<< HEAD
 from .forms import SignUpForm, EditProfileForm
 from .tokens import account_activation_token
+=======
+from .forms import SignUpForm, EditProfileForm, LoginForm
+>>>>>>> master
 
 
 # Create your views here.
 
 def login_user(request):
     if request.method == "GET":
-        return render(request, 'login.html')
+        loginForm = LoginForm()
+        return render(request, 'login.html', {'form' : loginForm})
     if request.method == "POST":
         username = request.POST.get('username', '')
         password = request.POST.get('password', '')

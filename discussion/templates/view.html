@@ -1,0 +1,81 @@
+{% extends 'layout/two-column.html' %}
+{% block title %} | View Discussion {% endblock %}
+{% load static %}
+
+{% block contents %}
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel panel-default">
+
+                <div class="panel-heading text-center">{{ discussion.topic }}</div>
+
+                <div class="panel-body">
+
+                    <div class="discussion-wrapper">
+
+                        <div class="discussion">
+                            <div class="user-wrapper">
+                                <img class="user-image" src="https://via.placeholder.com/150" alt="User Image"/>
+                                <div class="user-info">
+                                    <a class="user-name" href="#">{{ discussion.created_by.profile.real_name }}</a>
+                                    <p class="time">{{ discussion.created_at }}</p>
+                                </div>
+                            </div>
+                            <div class="discussion-text">
+                                <h3>{{ discussion.topic }}</h3>
+                                <hr/>
+                                <h4>{{ discussion.text }}</h4>
+                            </div>
+                        </div>
+
+                        <div class="comments">
+                            {% include 'comments.html' with comments=discussion.discussioncomments_set.all %}
+                        </div>
+                        <div class="new_comment">
+                            <form name="commentForm" id="commentForm" method="post">
+                                {% csrf_token %}
+                                <input type="text" id="comment" name="comment" placeholder="New Comment"
+                                       class="form-control"/>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+{% endblock contents %}
+
+{% block Scripts %}
+    <script type="text/javascript">
+        function loadComments() {
+            let discussion_id = {{ discussion.id }};
+            $(".comments").load("{% url 'comment_list' id=discussion.id %}");
+        }
+
+        jQuery(document).ready(function () {
+            setInterval(loadComments, 500000);
+
+            $("form#commentForm").submit(function (e) {
+                e.preventDefault();
+                let comment = $("input#comment").val();
+                $("input#comment").prop("disabled", true);
+
+                $.post('{% url 'new_comment' %}', {
+                    comment: comment,
+                    discussion : '{{ discussion.id }}'
+                }, function(res) {
+                    $("input#comment").val("");
+                    $("input#comment").prop("disabled", false);
+                    $("input#comment").focus();
+                    loadComments();
+                });
+            });
+        });
+    </script>
+{% endblock Scripts %}

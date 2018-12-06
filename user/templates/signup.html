@@ -1,4 +1,4 @@
-{% extends 'layout/default.html' %}
+{% extends 'layout/two-column.html' %}
 {% block title %} | Sign Up {% endblock %}
 {% load static %}
 
@@ -9,7 +9,7 @@
     <div class="panel panel-default">
       <div class="panel-heading text-center"> Sign Up </div>
         <div class="panel-body">
-          <form method="post">
+          <form method="post" class="form-horizontal">
             {% csrf_token %}
             {% for field in form %}
               <p>
@@ -23,8 +23,9 @@
                 {% endfor %}
               </p>
             {% endfor %}
-            <button type="submit">Submit</button>
+            <button type="submit">Sign up</button>
           </form>
+
         </div>
 
       </div>
@@ -35,5 +36,4 @@
   </div>
 
 </div>
-
 {% endblock contents %}

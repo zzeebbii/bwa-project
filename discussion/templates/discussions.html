@@ -1,0 +1,49 @@
+{% extends 'layout/two-column.html' %}
+{% block title %} | Discussions {% endblock %}
+{% load static %}
+
+{% block contents %}
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading text-center"> All Discussions</div>
+                <div class="panel-body">
+                    <a href="{% url 'create_discussion' %}" class="btn btn-default btn-primary">Start a new
+                        discussion</a>
+                    <hr/>
+
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                        <th>Sr.</th>
+                        <th>Discussion Topic</th>
+                        <th>Discussion Text</th>
+                        <th>Started By</th>
+                        <th>Started At</th>
+                        <th>Action</th>
+                        </thead>
+                        <tbody>
+                        {% for discussion in discussions %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ discussion.topic }}</td>
+                                <td>{{ discussion.text }}</td>
+                                <td>{{ discussion.created_by.profile.real_name }}</td>
+                                <td>{{ discussion.created_at }}</td>
+                                <td>
+                                    <a href="{% url 'view_discussion' id=discussion.id %}" class="btn btn-default btn-info">Participate</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+{% endblock contents %}

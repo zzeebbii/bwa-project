@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'user',
     'social_django',
     'friendship',
+    'discussion',
 ]
 
 MIDDLEWARE = [
