@@ -97,6 +97,9 @@ SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/userprofile'
 
 WSGI_APPLICATION = 'bwa2018djangoproject.wsgi.application'
 
+# Django console email backend
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases

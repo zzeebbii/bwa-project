@@ -5,13 +5,14 @@ from django.dispatch import receiver
 
 
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    real_name = models.CharField(max_length=30, blank=True)
-    email = models.EmailField(max_length=254, blank=True)
-    dob = models.DateField(null=True)
-    country = models.CharField(max_length=300, blank=True)
-    city = models.CharField(max_length=30, blank=True)
-    phone = models.CharField(max_length=20, blank=True)
+    user=models.OneToOneField(User, on_delete=models.CASCADE)
+    realname=models.CharField(max_length=30, blank=True)
+    email=models.EmailField(max_length=254, blank=True)
+    email_confirmed = models.BooleanField(default=False)
+    dob=models.DateField(null=True)
+    country=models.CharField(max_length=300, blank=True)
+    city=models.CharField(max_length=30, blank=True)
+    phone=models.CharField(max_length=20, blank=True)
 
     def _str_(self):
         return self.user.username
