@@ -16,7 +16,9 @@
 
                         <div class="discussion">
                             <div class="user-wrapper">
-                                <img class="user-image" src="https://via.placeholder.com/150" alt="User Image"/>
+                                <img class="user-image" {% if discussion.created_by.profile.avatar != None %}
+                                     src="{{ discussion.created_by.profile.avatar.url }}" {% else %}
+                                     src="https://via.placeholder.com/150" {% endif %} alt="User Image"/>
                                 <div class="user-info">
                                     <a class="user-name" href="#">{{ discussion.created_by.profile.real_name }}</a>
                                     <p class="time">{{ discussion.created_at }}</p>
@@ -68,8 +70,8 @@
 
                 $.post('{% url 'new_comment' %}', {
                     comment: comment,
-                    discussion : '{{ discussion.id }}'
-                }, function(res) {
+                    discussion: '{{ discussion.id }}'
+                }, function (res) {
                     $("input#comment").val("");
                     $("input#comment").prop("disabled", false);
                     $("input#comment").focus();

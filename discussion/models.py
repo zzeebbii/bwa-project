@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 class Discussions(models.Model):
     topic = models.CharField(max_length=255, default='')
     text = models.TextField()

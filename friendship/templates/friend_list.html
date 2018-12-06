@@ -1,18 +1,32 @@
 {% if friends %}
     <table class="table table-bordered table-hover">
         <thead>
-        <th>Sr.</th>
-        <th>Name</th>
-        <th>Join Date</th>
-        <th>Action</th>
+        <tr>
+            <th class="text-center">Sr.</th>
+            <th>Name</th>
+            <th>Join Date</th>
+            <th class="text-center">Action</th>
+        </tr>
         </thead>
         <tbody>
         {% for f in friends %}
             <tr>
-            <td>{{ forloop.counter }}</td>
-            <td>{{ f.profile.real_name }}</td>
-            <td>{{ f.profile.created_at }}</td>
-            <td></td>
+                <td class="text-center">{{ forloop.counter }}</td>
+                <td>
+                    <a href="{% url 'profileinfo' id=f.id %}">
+                        {{ f.profile.real_name }}
+                    </a>
+                </td>
+                <td>{{ f.profile.created_at }}</td>
+                <td class="text-center">
+                    {% if f.id in accepted %}
+                        <span class="btn btn-success">Friend</span>
+                    {% elif f.id in sent %}
+                        <span class="btn btn-warning">Request Sent</span>
+                    {% else %}
+                        <a href="#" class="btn btn-default btn-info add-friend" data-id="{{ f.id }}">Add Friend</a>
+                    {% endif %}
+                </td>
             </tr>
         {% endfor %}
         </tbody>

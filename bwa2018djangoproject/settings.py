@@ -93,7 +93,7 @@ AUTHENTICATION_BACKENDS = (
 SOCIAL_AUTH_FACEBOOK_KEY = '748982895479682'  # App ID
 SOCIAL_AUTH_FACEBOOK_SECRET = 'd8219e0022f20375d054ea8348eb2b80'  # App Secret
 
-SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/userprofile'
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/'
 
 WSGI_APPLICATION = 'bwa2018djangoproject.wsgi.application'
 
@@ -161,6 +161,9 @@ ALLOWED_HOSTS = ['*']
 
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 STATIC_URL = '/static/'
+
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'uploads')
+MEDIA_URL = '/uploads/'
 
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = [

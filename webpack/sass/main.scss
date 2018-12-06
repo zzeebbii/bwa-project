@@ -5,6 +5,11 @@ html, body {
   background-color: #E9EBEE;
 }
 
+.page-contents {
+  position: relative;
+  top: 70px;
+}
+
 $brand-color: #7282f5;
 .login {
   margin-top: 100px;
@@ -142,5 +147,28 @@ ul {
 
   input[type=text] {
     border-radius: 20px;
+  }
+}
+
+.user-profile {
+  .user-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 1px solid $brand-color;
+    object-fit: contain;
+  }
+
+  table {
+    td:first-of-type {
+      font-weight: bold;
+    }
+  }
+}
+table.table {
+  tr {
+    td {
+      vertical-align: middle;
+    }
   }
 }

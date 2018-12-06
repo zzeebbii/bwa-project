@@ -4,6 +4,10 @@ html, body {
   padding: 0;
   background-color: #E9EBEE; }
 
+.page-contents {
+  position: relative;
+  top: 70px; }
+
 .login {
   margin-top: 100px; }
   .login #login-title {
@@ -95,3 +99,17 @@ ul.messages {
   margin-top: 10px; }
   .new_comment input[type=text] {
     border-radius: 20px; }
+
+.user-profile .user-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 1px solid #7282f5;
+  -o-object-fit: contain;
+     object-fit: contain; }
+
+.user-profile table td:first-of-type {
+  font-weight: bold; }
+
+table.table tr td {
+  vertical-align: middle; }
