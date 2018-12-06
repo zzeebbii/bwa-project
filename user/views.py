@@ -4,12 +4,13 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.http import request
 from django.http import HttpResponse
-<<<<<<< HEAD
-from .forms import SignUpForm, EditProfileForm
-from .tokens import account_activation_token
-=======
 from .forms import SignUpForm, EditProfileForm, LoginForm
->>>>>>> master
+from django.contrib.sites.shortcuts import get_current_site
+from django.utils.encoding import force_text, force_bytes
+from django.utils.http import urlsafe_base64_decode,urlsafe_base64_encode
+from django.template.loader import render_to_string
+from .tokens import account_activation_token
+from django.contrib.auth.models import User
 
 
 # Create your views here.
@@ -40,16 +41,16 @@ def signup(request):
         if form.is_valid():
             user = form.save(commit=False)
             user.is_active = False
-            user.refresh_from_db()  # load the profile instance created by the signal
-            user.profile.email = form.cleaned_data.get('email')
-            user.profile.realname = form.cleaned_data.get('realname')
+            #user.refresh_from_db()  # load the profile instance created by the signal
+            #user.profile.email = form.cleaned_data.get('email')
+            #user.profile.realname = form.cleaned_data.get('realname')
             user.save()
             current_site = get_current_site(request)
             subject = 'Activate Your MySite Account'
             message = render_to_string('account_activation_email.html', {
                 'user': user,
                 'domain': current_site.domain,
-                'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+                'uid': urlsafe_base64_encode(force_bytes(user.pk)).decode(),
                 'token': account_activation_token.make_token(user),
             })
             user.email_user(subject, message)
@@ -63,7 +64,7 @@ def signup(request):
 def account_activation_sent(request):
     return render(request, 'account_activation_sent.html')
 
-def activate(request, uidb64, token):
+def activate(request, uidb64, token, backend='django.core.mail.backends.console.EmailBackend'):
     try:
         uid = force_text(urlsafe_base64_decode(uidb64))
         user = User.objects.get(pk=uid)
@@ -74,7 +75,7 @@ def activate(request, uidb64, token):
         user.is_active = True
         user.profile.email_confirmed = True
         user.save()
-        login(request, user)
+        login(request, user,backend='django.core.mail.backends.console.EmailBackend')
         return redirect('profile')
     else:
         return render(request, 'account_activation_invalid.html')
