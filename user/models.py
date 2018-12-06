@@ -25,14 +25,6 @@ def update_user_profile(sender, instance, created, **kwargs):
     instance.profile.save()
 
 
-class Friendship(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    req_from = models.PositiveIntegerField()
-    req_to = models.PositiveIntegerField()
-    is_accepted = models.PositiveSmallIntegerField()
-    datetime = models.DateTimeField(auto_now_add=True, blank=True)
-
-
 class Status(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     status_text = models.TextField()

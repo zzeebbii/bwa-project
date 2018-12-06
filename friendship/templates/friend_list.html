@@ -1,0 +1,22 @@
+{% if friends %}
+    <table class="table table-bordered table-hover">
+        <thead>
+        <th>Sr.</th>
+        <th>Name</th>
+        <th>Join Date</th>
+        <th>Action</th>
+        </thead>
+        <tbody>
+        {% for f in friends %}
+            <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ f.profile.real_name }}</td>
+            <td>{{ f.profile.created_at }}</td>
+            <td></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>No user found...</p>
+{% endif %}

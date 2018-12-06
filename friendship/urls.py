@@ -4,5 +4,7 @@ from friendship import views
 
 
 urlpatterns = [
-    path(r'sendrequest', views.find_friend, name='findfriend'),
+    path(r'find', views.find_friends, name='find_friends'),
+    path(r'list', views.list_friends, name='list_friends'),
+
 ]

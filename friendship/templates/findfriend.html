@@ -4,32 +4,58 @@
 
 {% block contents %}
 
-<div class="row login">
-    <div class="col-md-12 col-md-offset-3">
-        <div class="panel panel-default">
-            <div class="panel-heading text-center" >Find Friends</div>
-            <div class="panel-body">
-                <form class="form-horizontal" method="post" action="login">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading text-center">Find Friends</div>
+                <div class="panel-body">
+                    <form class="form-horizontal" name="find-friends" id="find-friends" method="post">
 
-                    {% csrf_token %}
-                    <div class="form-group">
-                        <div class="col-md-12">
-                            <label class="control-label" for="username">User Name</label>
-                            <input type="text" class="form-control" id="username" name="username"
-                                   placeholder="Enter Username of the Person">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <label class="control-label" for="username">User Name</label>
+                                <input type="text" class="form-control" id="username" name="username"
+                                       placeholder="Enter Username of the Person">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-12 text-right">
-                            <button type="button" class="btn btn-primary">Send Friend Request</button>
+                        <div class="form-group">
+                            <div class="col-md-12 text-right">
+                                <button type="submit" class="btn btn-primary">Find Friends</button>
+                            </div>
                         </div>
-                    </div>
 
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
 
-
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading text-center">User List</div>
+                <div class="panel-body">
+                    <div id="friend-list">
+                        {% include 'friend_list.html' %}
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
 {% endblock contents %}
+
+{% block Scripts %}
+    <script>
+        function loadFriends(friendName = '') {
+            friendName = encodeURIComponent(friendName);
+            $("#friend-list").empty();
+            $("#friend-list").load("{% url 'list_friends' %}" + "?name=" + friendName);
+        }
+
+        $(document).ready(function(e) {
+            $("#find-friends").submit(function(e) {
+                e.preventDefault();
+                loadFriends($("#username").val());
+            });
+        });
+    </script>
+{% endblock Scripts %}
