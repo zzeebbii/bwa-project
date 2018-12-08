@@ -1,7 +1,7 @@
 from django.contrib import messages
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse, HttpResponseForbidden
+from django.http import HttpResponse, HttpResponseForbidden, JsonResponse
 from django.contrib.auth.models import User
 from django.template.loader import render_to_string
 from .models import Friendship
@@ -32,7 +32,8 @@ def friend_request(request):
         new_request = Friendship(req_from=request.user, req_to_id=request_to, is_accepted=False)
         new_request.save()
 
-        return HttpResponse("{'status': true, 'message': 'Request Sent'}", content_type='application/json')
+        response_data = {'result': True, 'message': "Request Sent"}
+        return JsonResponse(response_data)
     else:
         return HttpResponseForbidden("You are in a place where you should not be")
 
