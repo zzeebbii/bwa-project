@@ -121,9 +121,16 @@
                                             <tr>
                                                 <td class="text-center">{{ forloop.counter }}</td>
                                                 <td>
-                                                    <a href="{% url 'profileinfo' id=f.req_to.id %}">
-                                                        {{ f.req_to.profile.real_name }}
-                                                    </a>
+                                                    {% if f.req_to == request.user %}
+                                                        <a href="{% url 'profileinfo' id=f.req_from.id %}">
+                                                            {{ f.req_from.profile.real_name }}
+                                                        </a>
+                                                    {% else %}
+                                                        <a href="{% url 'profileinfo' id=f.req_to.id %}">
+                                                            {{ f.req_to.profile.real_name }}
+                                                        </a>
+                                                    {% endif %}
+
                                                 </td>
                                                 <td>{{ f.created_at }}</td>
                                                 <td>{{ f.updated_at }}</td>
@@ -149,9 +156,15 @@
                                             <tr>
                                                 <td class="text-center">{{ forloop.counter }}</td>
                                                 <td>
-                                                    <a href="{% url 'profileinfo' id=p.req_to.id %}">
-                                                        {{ p.req_to.profile.real_name }}
-                                                    </a>
+                                                    {% if p.req_to == request.user %}
+                                                        <a href="{% url 'profileinfo' id=p.req_from.id %}">
+                                                            {{ p.req_from.profile.real_name }}
+                                                        </a>
+                                                    {% else %}
+                                                        <a href="{% url 'profileinfo' id=p.req_to.id %}">
+                                                            {{ p.req_to.profile.real_name }}
+                                                        </a>
+                                                    {% endif %}
                                                 </td>
                                                 <td>{{ p.created_at }}</td>
                                             </tr>

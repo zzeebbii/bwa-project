@@ -38,7 +38,8 @@
                                     </td>
                                     <td>{{ d.created_at }}</td>
                                     <td class="text-center">
-                                        <a href="{% url 'view_discussion' id=d.id %}" class="btn btn-primary">Join Discussion</a>
+                                        <a href="{% url 'view_discussion' id=d.id %}" class="btn btn-primary">Join
+                                            Discussion</a>
                                     </td>
                                 </tr>
                             {% endfor %}
@@ -68,9 +69,15 @@
                                 <tr>
                                     <td class="text-center">{{ forloop.counter }}</td>
                                     <td>
-                                        <a href="{% url 'profileinfo' id=f.req_from.id %}">
-                                            {{ f.req_from.profile.real_name }}
-                                        </a>
+                                        {% if f.req_to == request.user %}
+                                            <a href="{% url 'profileinfo' id=f.req_from.id %}">
+                                                {{ f.req_from.profile.real_name }}
+                                            </a>
+                                        {% else %}
+                                            <a href="{% url 'profileinfo' id=f.req_to.id %}">
+                                                {{ f.req_to.profile.real_name }}
+                                            </a>
+                                        {% endif %}
                                     </td>
 
                                     <td>{{ f.created_at }}</td>
@@ -107,9 +114,15 @@
                                 <tr>
                                     <td class="text-center">{{ forloop.counter }}</td>
                                     <td>
-                                        <a href="{% url 'profileinfo' id=req.req_from.id %}">
-                                            {{ req.req_from.profile.real_name }}
-                                        </a>
+                                        {% if req.req_to == request.user %}
+                                            <a href="{% url 'profileinfo' id=req.req_from.id %}">
+                                                {{ req.req_from.profile.real_name }}
+                                            </a>
+                                        {% else %}
+                                            <a href="{% url 'profileinfo' id=req.req_to.id %}">
+                                                {{ req.req_to.profile.real_name }}
+                                            </a>
+                                        {% endif %}
                                     </td>
                                     <td>{{ req.created_at }}</td>
                                     <td class="text-center">

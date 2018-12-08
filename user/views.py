@@ -114,7 +114,7 @@ def profile_info(request, id):
     pendings = Friendship.objects.filter(Q(is_accepted=False) & Q(req_from=request.user)).all()
     is_self = request.user.id == id
     is_friend = Friendship.objects.filter(
-        Q(is_accepted=True) & (Q(req_from=request.user) | Q(req_to=request.user))).all()
+        Q(is_accepted=True) & (Q(req_from=user) | Q(req_to=user))).all()
     return render(request, 'profile_info.html',
                   {'user': user, 'discussions': discussions, 'friends': friends, 'pendings': pendings,
                    'is_self': is_self, 'is_friend': is_friend})
