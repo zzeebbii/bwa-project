@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-
+from django.db.models import Q
 from friendship.models import Friendship
 from .forms import SignUpForm, EditProfileForm, LoginForm
 from django.contrib.sites.shortcuts import get_current_site
@@ -95,9 +95,9 @@ def profile(request):
     user_discussions = user_discussions.union(comment_discussions)
     discussions = Discussions.objects.filter(pk__in=user_discussions).all()
     # 2. Get all accepted friend requests
-    friends = Friendship.objects.filter(req_to=request.user, is_accepted=True).all()
+    friends = user.req_from.filter(Q(is_accepted=True) & (Q(req_to=request.user) | Q(req_from=request.user))).all()
     # 3. Get all friend requests
-    friend_requests = Friendship.objects.filter(req_to=request.user, is_accepted=False).all()
+    friend_requests = user.req_to.filter(Q(is_accepted=False) & Q(req_to=request.user)).all()
 
     return render(request, 'profile_page.html',
                   {'friends': friends, 'friend_requests': friend_requests, 'discussions': discussions})
@@ -110,10 +110,11 @@ def profile_info(request, id):
     comment_discussions = user.discussioncomments_set.values_list('discussion_id', flat=True).all()
     user_discussions = user_discussions.union(comment_discussions)
     discussions = Discussions.objects.filter(pk__in=user_discussions)
-    friends = user.req_from.filter(is_accepted=True).all()
+    friends = user.req_from.filter(Q(is_accepted=True) & (Q(req_to=id) | Q(req_from=id))).all()
     pendings = user.req_from.filter(is_accepted=False).all()
     is_self = request.user.id == id
-    is_friend = user.req_from.filter(req_to=id, is_accepted=True).all()
+    is_friend = Friendship.objects.filter(
+        Q(is_accepted=True) | (Q(req_from=request.user) | Q(req_to=request.user))).all()
     return render(request, 'profile_info.html',
                   {'user': user, 'discussions': discussions, 'friends': friends, 'pendings': pendings,
                    'is_self': is_self, 'is_friend': is_friend})
