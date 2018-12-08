@@ -68,7 +68,7 @@
                                 <tr>
                                     <td class="text-center">{{ forloop.counter }}</td>
                                     <td>
-                                        <a href="{% url 'profileinfo' id=f.req_from_id %}">
+                                        <a href="{% url 'profileinfo' id=f.req_from.id %}">
                                             {{ f.req_from.profile.real_name }}
                                         </a>
                                     </td>
@@ -107,7 +107,7 @@
                                 <tr>
                                     <td class="text-center">{{ forloop.counter }}</td>
                                     <td>
-                                        <a href="{% url 'profileinfo' id=f.req_from_id %}">
+                                        <a href="{% url 'profileinfo' id=f.req_from.id %}">
                                             {{ req.req_from.profile.real_name }}
                                         </a>
                                     </td>
