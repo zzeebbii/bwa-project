@@ -43,10 +43,9 @@
                        aria-expanded="false">{{ request.user.profile.real_name }} <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="{% url 'profileinfo' id=request.user.id %}">Profile Info</a></li>
-                        <li><a href="{% url 'logout' %}">Logout</a></li>
                         <li><a href="{% url 'find_friends' %}">Find Friends</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
+                        <li><a href="{% url 'logout' %}">Logout</a></li>
                     </ul>
                 </li>
             </ul>
@@ -57,16 +56,16 @@
 <div class="container-fluid page-contents">
 
     <div class="row">
-        <div class="col-md-3 hidden-sm left-sidebar">
+        <div class="col-md-2 hidden-sm left-sidebar">
 
         </div>
 
-        <div class="col-md-6 col-sm-12 center-content">
+        <div class="col-md-8 col-sm-12 center-content">
             {% block contents %}
             {% endblock contents %}
         </div>
 
-        <div class="col-md-3 hidden-sm right-sidebar">
+        <div class="col-md-2 hidden-sm right-sidebar">
 
         </div>
     </div>

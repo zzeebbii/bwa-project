@@ -10,14 +10,13 @@ class LoginForm(forms.Form):
 
 
 class SignUpForm(UserCreationForm):
-    username = forms.CharField(max_length=30, required=True,
-                               widget=forms.TextInput(attrs={'class': 'form-control'}))
-
-    email = forms.EmailField(max_length=254, required=True,
-                             widget=forms.TextInput(attrs={'class': 'form-control'}))
-
-    real_name = forms.CharField(max_length=30, required=True,
-                                widget=forms.TextInput(attrs={'class': 'form-control'}))
+    username = forms.CharField(max_length=30, required=True, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    email = forms.EmailField(max_length=254, required=True, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    real_name = forms.CharField(max_length=30, required=True, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    password1 = forms.CharField(max_length=30, required=True, label='Password',
+                                widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+    password2 = forms.CharField(max_length=30, required=True, label='Repeat Password',
+                                widget=forms.PasswordInput(attrs={'class': 'form-control'}))
 
     class Meta:
         model = User
@@ -26,7 +25,7 @@ class SignUpForm(UserCreationForm):
 
 class EditProfileForm(UserChangeForm):
     real_name = forms.CharField(max_length=30, widget=forms.TextInput(attrs={'class': 'form-control'}))
-    avatar = forms.FileField()
+    avatar = forms.FileField(required=False)
     dob = forms.DateField(widget=forms.DateInput(attrs={'class': 'form-control', 'placeholder': '2018-01-30'}))
     country = forms.CharField(max_length=30, widget=forms.TextInput(attrs={'class': 'form-control'}))
     city = forms.CharField(max_length=30, widget=forms.TextInput(attrs={'class': 'form-control'}))

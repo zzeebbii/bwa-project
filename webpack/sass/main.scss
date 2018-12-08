@@ -4,7 +4,9 @@ html, body {
   padding: 0;
   background-color: #E9EBEE;
 }
-
+.jumbotron {
+  background: #dadada;
+}
 .page-contents {
   position: relative;
   top: 70px;
@@ -27,6 +29,10 @@ $brand-color: #7282f5;
   #social-google {
     background-color: #EA4335;
     border-color: unset;
+
+    a {
+      color: #fff;
+    }
   }
 }
 
@@ -45,6 +51,24 @@ ul {
 
   .navbar-brand {
     color: #fff;
+  }
+
+  .navbar-nav {
+    li {
+      a {
+        color: #fff;
+      }
+
+      &.active a {
+        color: #000;
+      }
+
+      .dropdown-menu {
+        a {
+          color: #000;
+        }
+      }
+    }
   }
 }
 
@@ -165,6 +189,7 @@ ul {
     }
   }
 }
+
 table.table {
   tr {
     td {

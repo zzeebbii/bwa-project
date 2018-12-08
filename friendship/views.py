@@ -15,9 +15,10 @@ def list_friends(request):
     if request.is_ajax():
         name = request.GET['name']
         friends = User.objects.filter(profile__real_name__icontains=name)
-        accepted = Friendship.objects.filter(req_from=request.user.id, is_accepted=True).values_list('req_to', flat=True)
+        accepted = Friendship.objects.filter(req_from=request.user.id, is_accepted=True).values_list('req_to',
+                                                                                                     flat=True)
         sent = Friendship.objects.filter(req_from=request.user.id, is_accepted=False).values_list('req_to', flat=True)
-        html = render_to_string('friend_list.html', {'friends': friends, 'sent': sent, 'accepted' : accepted})
+        html = render_to_string('friend_list.html', {'friends': friends, 'sent': sent, 'accepted': accepted})
         return HttpResponse(html)
     else:
         return HttpResponseForbidden("You are in a place where you should not be")

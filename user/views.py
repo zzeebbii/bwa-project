@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+
+from friendship.models import Friendship
 from .forms import SignUpForm, EditProfileForm, LoginForm
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils.encoding import force_text, force_bytes
@@ -16,6 +18,8 @@ from discussion.models import Discussions, DiscussionComments
 # Create your views here.
 
 def login_user(request):
+    if request.user.is_authenticated:
+        return redirect('profileinfo', id=request.user.id)
     if request.method == "GET":
         loginForm = LoginForm()
         return render(request, 'login.html', {'form': loginForm})
@@ -40,11 +44,11 @@ def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
-            user = form.save(commit=False)
+            user = form.save(commit=True)
             user.is_active = False
-            # user.refresh_from_db()  # load the profile instance created by the signal
-            # user.profile.email = form.cleaned_data.get('email')
-            # user.profile.realname = form.cleaned_data.get('realname')
+            user.refresh_from_db()  # load the profile instance created by the signal
+            user.profile.email = form.cleaned_data.get('email')
+            user.profile.real_name = form.cleaned_data.get('real_name')
             user.save()
             current_site = get_current_site(request)
             subject = 'Activate Your MySite Account'
@@ -84,7 +88,14 @@ def activate(request, uidb64, token, backend='django.core.mail.backends.console.
 
 @login_required
 def profile(request):
-    return render(request, 'profile_page.html')
+    # 1. Get all discussions user is participating in
+
+    # 2. Get all accepted friend requests
+    friends = Friendship.objects.filter(req_to=request.user, is_accepted=True)
+    # 3. Get all friend requests
+    friend_requests = Friendship.objects.filter(req_to=request.user, is_accepted=False)
+
+    return render(request, 'profile_page.html', {'friends': friends, 'friend_requests': friend_requests})
 
 
 @login_required

@@ -4,6 +4,9 @@ html, body {
   padding: 0;
   background-color: #E9EBEE; }
 
+.jumbotron {
+  background: #dadada; }
+
 .page-contents {
   position: relative;
   top: 70px; }
@@ -19,6 +22,8 @@ html, body {
   .login #social-google {
     background-color: #EA4335;
     border-color: unset; }
+    .login #social-google a {
+      color: #fff; }
 
 ul.messages {
   list-style: none;
@@ -31,6 +36,12 @@ ul.messages {
   border-radius: 0; }
   .navbar.navbar-default .navbar-brand {
     color: #fff; }
+  .navbar.navbar-default .navbar-nav li a {
+    color: #fff; }
+  .navbar.navbar-default .navbar-nav li.active a {
+    color: #000; }
+  .navbar.navbar-default .navbar-nav li .dropdown-menu a {
+    color: #000; }
 
 .discussion-wrapper .user-wrapper::after {
   content: "";

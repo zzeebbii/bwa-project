@@ -1,13 +1,20 @@
 {% extends 'layout/default.html' %}
-{% block title %} | Login {% endblock %}
+{% block title %} | Activation Email Sent {% endblock %}
 {% load static %}
 
 {% block contents %}
 
-<div class="col-md-12">
-    <p>Account activation email sent.</p>
-
-</div>
-
-
+    <div class="row login">
+        <div class="col-sm-offset-2 col-sm-8">
+            <div class="jumbotron">
+                <h2>Welcome to LetConnect</h2>
+                <p>
+                    An activation email is sent to your provided e-mail. (In this case, to console). Please follow the link in email to activate your account.
+                </p>
+                <p>
+                    <a class="btn btn-primary btn-lg" href="{% url 'login' %}" role="button">Login</a>
+                </p>
+            </div>
+        </div>
+    </div>
 {% endblock contents %}

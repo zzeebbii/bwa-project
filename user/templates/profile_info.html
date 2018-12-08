@@ -11,7 +11,7 @@
                 <div class="panel-heading text-center"> User Information</div>
                 <div class="panel-body">
                     <div class="text-center">
-                        <img class="user-image" {% if user.profile.avatar != None %}
+                        <img class="user-image" {% if user.profile.avatar %}
                              src="{{ user.profile.avatar.url }}" {% else %}
                              src="https://via.placeholder.com/150" {% endif %} alt="User Profile Image"/>
                         <a href="{% url 'profileinfo' id=user.id %}"><h3>{{ user.profile.real_name }}</h3></a>

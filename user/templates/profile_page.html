@@ -4,28 +4,83 @@
 
 {% block contents %}
 
-<div class="col-md-4">
-  <div class="panel panel-default">
-    <div class="panel-heading text-center"> Discussions </div>
-      <div class="panel-body">
-      </div>
-  </div>
-</div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading text-center"> Discussions</div>
+                <div class="panel-body">
+                </div>
+            </div>
+        </div>
 
-<div class="col-md-4">
-  <div class="panel panel-default">
-    <div class="panel-heading text-center"> Friends </div>
-    <div class="panel-body">
-    </div>
-  </div>
-</div>
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading text-center"> Friends</div>
+                <div class="panel-body">
+                    {% if friends %}
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th class="text-center">Sr.</th>
+                                <th>Name</th>
+                                <th>Date</th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for friend in friends %}
+                                <tr>
+                                    <td class="text-center">{{ forloop.counter }}</td>
+                                    <td>{{ f.req_from.profile.real_name }}</td>
+                                    <td>{{ f.created_at }}</td>
+                                    <td class="text-center">
+                                        <a href="#" class="btn btn-default">
+                                            Un-Friend
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
 
-<div class="col-md-4">
-  <div class="panel panel-default">
-    <div class="panel-heading text-center"> Friend Requests </div>
-    <div class="panel-body">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading text-center"> Friend Requests</div>
+                <div class="panel-body">
+                    {% if friend_requests %}
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th class="text-center">Sr.</th>
+                                <th>Name</th>
+                                <th>Date</th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for req in friend_requests %}
+                                <tr>
+                                    <td class="text-center">{{ forloop.counter }}</td>
+                                    <td>{{ req.req_from.profile.real_name }}</td>
+                                    <td>{{ req.created_at }}</td>
+                                    <td class="text-center">
+                                        <a href="#" class="btn btn-default">
+                                            Accept
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
+
 
 {% endblock contents %}
