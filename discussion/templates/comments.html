@@ -1,7 +1,7 @@
 {% for comment in comments %}
     <div class="comment">
         <div class="img-wrapper">
-            <img class="user-image" {% if comment.comment_by.profile.avatar != None %}
+            <img class="user-image" {% if comment.comment_by.profile.avatar  %}
                  src="{{ comment.comment_by.profile.avatar.url }}" {% else %} src="https://via.placeholder.com/150" {% endif %} alt="User Image"/>
         </div>
         <div class="comment-text">

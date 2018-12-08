@@ -16,7 +16,7 @@
 
                         <div class="discussion">
                             <div class="user-wrapper">
-                                <img class="user-image" {% if discussion.created_by.profile.avatar != None %}
+                                <img class="user-image" {% if discussion.created_by.profile.avatar %}
                                      src="{{ discussion.created_by.profile.avatar.url }}" {% else %}
                                      src="https://via.placeholder.com/150" {% endif %} alt="User Image"/>
                                 <div class="user-info">
