@@ -93,7 +93,7 @@ def profile(request):
     user_discussions = user.discussions_set.values_list('id', flat=True).all()
     comment_discussions = user.discussioncomments_set.values_list('discussion_id', flat=True).all()
     user_discussions = user_discussions.union(comment_discussions)
-    discussions = Discussions.objects.filter(pk__in=user_discussions)
+    discussions = Discussions.objects.filter(pk__in=user_discussions).all()
     # 2. Get all accepted friend requests
     friends = Friendship.objects.filter(req_to=request.user, is_accepted=True).all()
     # 3. Get all friend requests
