@@ -1,9 +1,11 @@
+from django.contrib import messages
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseForbidden
 from django.contrib.auth.models import User
 from django.template.loader import render_to_string
 from .models import Friendship
+from django.shortcuts import render, redirect
 
 
 @login_required
@@ -33,3 +35,14 @@ def friend_request(request):
         return HttpResponse("{'status': true, 'message': 'Request Sent'}", content_type='application/json')
     else:
         return HttpResponseForbidden("You are in a place where you should not be")
+
+
+def accept_request(request, id):
+    friend_request = Friendship.objects.filter(id=id, req_to=request.user)
+    if not friend_request:
+        messages.error(request, 'You cannot accept this request', extra_tags="danger")
+        return redirect('profile')
+    else:
+        friend_request.update(is_accepted=True)
+        messages.error(request, 'Request accepted successfully', extra_tags="success")
+        return redirect('profile')

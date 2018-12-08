@@ -26,10 +26,14 @@ def login_user(request):
     if request.method == "POST":
         username = request.POST.get('username', '')
         password = request.POST.get('password', '')
-        user = authenticate(request, username=username, password=password)
+        user = authenticate(username=username, password=password)
         if user is not None:
-            login(request, user)
-            return redirect('profile')
+            if not user.is_active:
+                messages.error(request, 'Your account is not activated', extra_tags="danger")
+                return redirect('login')
+            else:
+                login(request, user)
+                return redirect('profile')
         else:
             messages.error(request, 'Invalid user name or password', extra_tags="danger")
             return redirect('login')
@@ -89,13 +93,18 @@ def activate(request, uidb64, token, backend='django.core.mail.backends.console.
 @login_required
 def profile(request):
     # 1. Get all discussions user is participating in
-
+    user = User.objects.get(pk=request.user.id)
+    user_discussions = user.discussions_set.values_list('id', flat=True).all()
+    comment_discussions = user.discussioncomments_set.values_list('discussion_id', flat=True).all()
+    user_discussions = user_discussions.union(comment_discussions)
+    discussions = Discussions.objects.filter(pk__in=user_discussions)
     # 2. Get all accepted friend requests
-    friends = Friendship.objects.filter(req_to=request.user, is_accepted=True)
+    friends = Friendship.objects.filter(req_to=request.user, is_accepted=True).all()
     # 3. Get all friend requests
-    friend_requests = Friendship.objects.filter(req_to=request.user, is_accepted=False)
+    friend_requests = Friendship.objects.filter(req_to=request.user, is_accepted=False).all()
 
-    return render(request, 'profile_page.html', {'friends': friends, 'friend_requests': friend_requests})
+    return render(request, 'profile_page.html',
+                  {'friends': friends, 'friend_requests': friend_requests, 'discussions': discussions})
 
 
 @login_required

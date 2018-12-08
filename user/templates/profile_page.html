@@ -9,6 +9,42 @@
             <div class="panel panel-default">
                 <div class="panel-heading text-center"> Discussions</div>
                 <div class="panel-body">
+                    {% if discussions %}
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th class="text-center">Sr.</th>
+                                <th>Topic</th>
+                                <th>Started By</th>
+                                <th>Started At</th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for d in discussions %}
+                                <tr>
+                                    <td class="text-center">
+                                        {{ forloop.counter }}
+                                    </td>
+                                    <td>
+                                        <a href="{% url 'view_discussion' id=d.id %}">
+                                            {{ d.topic }}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="{% url 'profileinfo' id=d.created_by.id %}">
+                                            {{ d.created_by.profile.real_name }}
+                                        </a>
+                                    </td>
+                                    <td>{{ d.created_at }}</td>
+                                    <td>
+
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -28,10 +64,15 @@
                             </tr>
                             </thead>
                             <tbody>
-                            {% for friend in friends %}
+                            {% for f in friends %}
                                 <tr>
                                     <td class="text-center">{{ forloop.counter }}</td>
-                                    <td>{{ f.req_from.profile.real_name }}</td>
+                                    <td>
+                                        <a href="{% url 'profileinfo' id=f.req_from_id %}">
+                                            {{ f.req_from.profile.real_name }}
+                                        </a>
+                                    </td>
+
                                     <td>{{ f.created_at }}</td>
                                     <td class="text-center">
                                         <a href="#" class="btn btn-default">
@@ -65,10 +106,14 @@
                             {% for req in friend_requests %}
                                 <tr>
                                     <td class="text-center">{{ forloop.counter }}</td>
-                                    <td>{{ req.req_from.profile.real_name }}</td>
+                                    <td>
+                                        <a href="{% url 'profileinfo' id=f.req_from_id %}">
+                                            {{ req.req_from.profile.real_name }}
+                                        </a>
+                                    </td>
                                     <td>{{ req.created_at }}</td>
                                     <td class="text-center">
-                                        <a href="#" class="btn btn-default">
+                                        <a href="{% url 'accept_request' id=req.id %}" class="btn btn-default">
                                             Accept
                                         </a>
                                     </td>
