@@ -28,12 +28,8 @@ def login_user(request):
         password = request.POST.get('password', '')
         user = authenticate(username=username, password=password)
         if user is not None:
-            if not user.is_active:
-                messages.error(request, 'Your account is not activated', extra_tags="danger")
-                return redirect('login')
-            else:
-                login(request, user)
-                return redirect('profile')
+            login(request, user)
+            return redirect('profile')
         else:
             messages.error(request, 'Invalid user name or password', extra_tags="danger")
             return redirect('login')
@@ -49,8 +45,8 @@ def signup(request):
         form = SignUpForm(request.POST)
         if form.is_valid():
             user = form.save(commit=True)
-            user.is_active = False
             user.refresh_from_db()  # load the profile instance created by the signal
+            user.is_active = False
             user.profile.email = form.cleaned_data.get('email')
             user.profile.real_name = form.cleaned_data.get('real_name')
             user.save()
@@ -108,8 +104,8 @@ def profile(request):
 
 
 @login_required
-def profile_info(request, id):
-    user = User.objects.get(pk=id)
+def profile_info(request, user_id):
+    user = User.objects.get(pk=user_id)
     user_discussions = user.discussions_set.values_list('id', flat=True).all()
     comment_discussions = user.discussioncomments_set.values_list('discussion_id', flat=True).all()
     user_discussions = user_discussions.union(comment_discussions)
