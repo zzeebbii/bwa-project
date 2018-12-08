@@ -37,8 +37,8 @@
                                         </a>
                                     </td>
                                     <td>{{ d.created_at }}</td>
-                                    <td>
-
+                                    <td class="text-center">
+                                        <a href="{% url 'view_discussion' id=d.id %}" class="btn btn-primary">Join Discussion</a>
                                     </td>
                                 </tr>
                             {% endfor %}

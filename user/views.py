@@ -105,7 +105,6 @@ def profile(request):
 
 @login_required
 def profile_info(request, id):
-
     user = User.objects.get(pk=id)
     user_discussions = user.discussions_set.values_list('id', flat=True).all()
     comment_discussions = user.discussioncomments_set.values_list('discussion_id', flat=True).all()
@@ -128,3 +127,11 @@ def edit_profile(request):
     else:
         form = EditProfileForm(instance=Profile.objects.get(user=request.user))
     return render(request, 'edit_profile.html', {'form': form})
+
+
+@login_required
+def delete_account(request):
+    User.objects.get(pk=request.user.id).delete()
+    messages.success(request, message="Your account is deleted")
+    logout(request)
+    return redirect('login')

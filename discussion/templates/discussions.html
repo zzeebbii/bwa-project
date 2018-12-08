@@ -28,10 +28,15 @@
                                 <td>{{ forloop.counter }}</td>
                                 <td>{{ discussion.topic }}</td>
                                 <td>{{ discussion.text }}</td>
-                                <td>{{ discussion.created_by.profile.real_name }}</td>
+                                <td>
+                                    <a href="{% url 'profileinfo' id=discussion.created_by.id %}">
+                                        {{ discussion.created_by.profile.real_name }}
+                                    </a>
+                                </td>
                                 <td>{{ discussion.created_at }}</td>
                                 <td>
-                                    <a href="{% url 'view_discussion' id=discussion.id %}" class="btn btn-default btn-info">Participate</a>
+                                    <a href="{% url 'view_discussion' id=discussion.id %}"
+                                       class="btn btn-default btn-info">Participate</a>
                                 </td>
                             </tr>
                         {% endfor %}
