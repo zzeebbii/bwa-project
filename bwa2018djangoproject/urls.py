@@ -19,18 +19,21 @@ from django.urls import path, include, re_path
 from user import views
 from django.conf import settings
 from django.conf.urls.static import static
+from django.views.static import serve
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', views.profile, name='home'),
-    re_path(r'^login', views.login_user, name='login'),
-    re_path(r'^logout', views.logout_user, name='logout'),
-    re_path(r'^account_activation_sent/$', views.account_activation_sent,
-            name='account_activation_sent'),
-    re_path(r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
-            views.activate, name='activate'),
-    path(r'oauth/', include('social_django.urls', namespace='social')),
-    path(r'user/', include("user.urls")),
-    path(r'friendship/', include("friendship.urls")),
-    re_path(r'^discussions/', include("discussion.urls"))
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+                  path('admin/', admin.site.urls),
+                  path('', views.profile, name='home'),
+                  re_path(r'^login', views.login_user, name='login'),
+                  re_path(r'^logout', views.logout_user, name='logout'),
+                  re_path(r'^account_activation_sent/$', views.account_activation_sent,
+                          name='account_activation_sent'),
+                  re_path(r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
+                          views.activate, name='activate'),
+                  path(r'oauth/', include('social_django.urls', namespace='social')),
+                  path(r'user/', include("user.urls")),
+                  path(r'friendship/', include("friendship.urls")),
+                  re_path(r'^discussions/', include("discussion.urls")),
+                  re_path(r'^uploads/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
+
+              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
