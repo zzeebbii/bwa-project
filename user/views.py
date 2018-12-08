@@ -112,8 +112,11 @@ def profile_info(request, id):
     discussions = Discussions.objects.filter(pk__in=user_discussions)
     friends = user.req_from.filter(is_accepted=True).all()
     pendings = user.req_from.filter(is_accepted=False).all()
+    is_self = request.user.id == id
+    is_friend = user.req_from.filter(req_to=id, is_accepted=True).all()
     return render(request, 'profile_info.html',
-                  {'user': user, 'discussions': discussions, 'friends': friends, 'pendings': pendings})
+                  {'user': user, 'discussions': discussions, 'friends': friends, 'pendings': pendings,
+                   'is_self': is_self, 'is_friend': is_friend})
 
 
 @login_required
