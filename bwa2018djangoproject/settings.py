@@ -17,16 +17,14 @@ import django_heroku
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "7rf22yx3#lm(+d25m-_2kl(%wtvm=(%j7%m0&!20%e2r2283+p"
 
-
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # Application definition
 
@@ -75,13 +73,12 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
 
                 'social_django.context_processors.backends',  # <--
-                'social_django.context_processors.login_redirect', # <--
+                'social_django.context_processors.login_redirect',  # <--
             ],
             'debug': DEBUG,
         },
     },
 ]
-
 
 AUTHENTICATION_BACKENDS = (
     'social_core.backends.github.GithubOAuth2',
@@ -99,7 +96,6 @@ WSGI_APPLICATION = 'bwa2018djangoproject.wsgi.application'
 
 # Django console email backend
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
