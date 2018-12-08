@@ -68,7 +68,8 @@
                                         <h4 class="modal-title" id="myModalLabel">Are you sure?</h4>
                                     </div>
                                     <div class="modal-body">
-                                        <h3>Are you sure that you want to <span class="label-warning">delete</span> your account?</h3>
+                                        <h3>Are you sure that you want to <span class="label-warning">delete</span> your
+                                            account?</h3>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">Close
@@ -86,14 +87,84 @@
             </div>
         </div>
 
-        <div class="col-xs-12">
-            <div class="panel panel-default">
-                <div class="panel-heading text-center"> Friends</div>
-                <div class="panel-body">
+        {% if user.id == request.user.id %}
+            <div class="col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center"> Friends</div>
+                    <div class="panel-body">
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a data-toggle="tab" href="#friends">Friends</a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#requests">My requests</a>
+                            </li>
+                        </ul>
 
+                        <div class="tab-content">
+
+                            <div id="friends" class="tab-pane fade in active">
+                                {% if friends %}
+                                    <table class="table table-bordered table-hover">
+                                        <thead>
+                                        <tr>
+                                            <th class="text-center">Sr.</th>
+                                            <th>Request To</th>
+                                            <th>Sent at</th>
+                                            <th>Accepted at</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for f in friends %}
+                                            <tr>
+                                                <td class="text-center">{{ forloop.counter }}</td>
+                                                <td>
+                                                    <a href="{% url 'profileinfo' id=f.req_to.id %}">
+                                                        {{ f.req_to.profile.real_name }}
+                                                    </a>
+                                                </td>
+                                                <td>{{ f.created_at }}</td>
+                                                <td>{{ f.updated_at }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                {% endif %}
+                            </div>
+
+                            <div id="requests" class="tab-pane fade">
+                                {% if pendings %}
+                                    <table class="table table-bordered table-hover">
+                                        <thead>
+                                        <tr>
+                                            <th class="text-center">Sr.</th>
+                                            <th>Request To</th>
+                                            <th>Sent at</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for p in pendings %}
+                                            <tr>
+                                                <td class="text-center">{{ forloop.counter }}</td>
+                                                <td>
+                                                    <a href="{% url 'profileinfo' id=p.req_to.id %}">
+                                                        {{ p.req_to.profile.real_name }}
+                                                    </a>
+                                                </td>
+                                                <td>{{ p.created_at }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                {% endif %}
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+
+        {% endif %}
 
         <div class="col-xs-12">
             <div class="panel panel-default">

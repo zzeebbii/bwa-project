@@ -40,9 +40,9 @@
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">{{ user.profile.real_name }} <span class="caret"></span></a>
+                       aria-expanded="false">{{ request.user.profile.real_name }} <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="{% url 'profileinfo' id=user.id %}">Profile Info</a></li>
+                        <li><a href="{% url 'profileinfo' id=request.user.id %}">Profile Info</a></li>
                         <li><a href="{% url 'find_friends' %}">Find Friends</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="{% url 'logout' %}">Logout</a></li>

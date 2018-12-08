@@ -110,8 +110,10 @@ def profile_info(request, id):
     comment_discussions = user.discussioncomments_set.values_list('discussion_id', flat=True).all()
     user_discussions = user_discussions.union(comment_discussions)
     discussions = Discussions.objects.filter(pk__in=user_discussions)
-    friends = user.req_from.filter(is_accepted=1)
-    return render(request, 'profile_info.html', {'user': user, 'discussions': discussions, 'friends': friends})
+    friends = user.req_from.filter(is_accepted=True).all()
+    pendings = user.req_from.filter(is_accepted=False).all()
+    return render(request, 'profile_info.html',
+                  {'user': user, 'discussions': discussions, 'friends': friends, 'pendings': pendings})
 
 
 @login_required
