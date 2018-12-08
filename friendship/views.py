@@ -47,3 +47,14 @@ def accept_request(request, id):
         friend_request.update(is_accepted=True)
         messages.error(request, 'Request accepted successfully', extra_tags="success")
         return redirect('profile')
+
+
+def unfriend(request, id):
+    friend = Friendship.objects.filter(id=id, is_accepted=True)
+    if not friend:
+        messages.error(request, 'You cannot un-friend this friend', extra_tags="danger")
+        return redirect('profile')
+    else:
+        friend.update(is_accepted=False)
+        messages.error(request, 'You un-friend the friend successfully', extra_tags="success")
+        return redirect('profile')

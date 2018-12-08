@@ -82,7 +82,7 @@
 
                                     <td>{{ f.created_at }}</td>
                                     <td class="text-center">
-                                        <a href="#" class="btn btn-default">
+                                        <a href="{% url 'un_friend' id=f.id %}" class="btn btn-default">
                                             Un-Friend
                                         </a>
                                     </td>
