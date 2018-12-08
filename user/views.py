@@ -104,8 +104,9 @@ def profile(request):
 
 
 @login_required
-def profile_info(request, user_id):
-    user = User.objects.get(pk=user_id)
+def profile_info(request, id):
+
+    user = User.objects.get(pk=id)
     user_discussions = user.discussions_set.values_list('id', flat=True).all()
     comment_discussions = user.discussioncomments_set.values_list('discussion_id', flat=True).all()
     user_discussions = user_discussions.union(comment_discussions)
