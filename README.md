@@ -20,55 +20,40 @@ For instructions on what to add under these headers, see the course project assi
 
 ## Must have features
 - [x] Use a virtual environment
-- [ ] Validate all HTML & CSS
-- [ ] Set **debug = false** at final deployment
+- [x] Validate all HTML & CSS
+- [x] Set **debug = false** at final deployment
 - [ ] Description of the web service data and functionality
-    - [ ] **Users**
-        - [ ] Admin User
+    - [x] **Users**
+        - [x] Admin User
         - [x] Normal Users
-    - [ ] **User profile pages**
-        - [ ] Add Status with option to add comments to status
-        - [ ] Update profile information
-        - [ ] Show friends
-        - [ ] Show events
-        - [ ] Show groups
-        - [ ] Show discussions
-    - [ ] **Friendship**
-        - [ ] Add new friend
-        - [ ] View friend requests
-        - [ ] Unfriend a friend
-    - [ ] **Discussions**
-        - [ ] Start a discussion
-        - [ ] Add friends to a discussion
-        - [ ] Comments on discussion
-    - [ ] **Events**
-        - [ ] Create and event
-        - [ ] View all events
-        - [ ] Invite a friend to event
+    - [x] **User profile pages**
+        - [x] Update profile information
+        - [x] Show friends
+        - [x] Show discussions
+    - [x] **Friendship**
+        - [x] Add new friend
+        - [x] View friend requests
+        - [x] Unfriend a friend
+    - [x] **Discussions**
+        - [x] Start a discussion
+        - [x] Join a discussion
+        - [x] Comments on discussion
 - [x] GitLab issue board for handling tasks
-- [ ] Small and precise commit messages
-- [ ] Track project progress with time
+- [x] Small and precise commit messages
+- [x] Track project progress with time
 - [x] Deploy site to heroku
-    - [ ] Deploy often to heorku during development
+    - [x] Deploy often to heorku during development
 
-## Planned +2 features
+## Implemented +2 features
 
 ### One star features
-- [x] Exceptional quality of the initial project plan document
-- [ ] Mid-project check-in shows faster than expected progress **(Planned)**
-- [ ] Make users, events and discussions searchable
-- [ ] Email validation on sign-up
-- [ ] Reset forgotten password
-- [ ] Use separate Django apps for different parts of your project
+- [x] Email validation on sign-up
+- [x] Use separate Django apps for different parts of your project
 
 ### Two Star features
-- [ ] Notifications
-- [ ] Use PostgreSQL as database
-- [ ] Using Bootstrap for mobile friendliness
-- [ ] 3rd party login
-
-### Three Star features
-- [ ] Creative use of any Django app to implement some bonus feature
+- [x] Use PostgreSQL as database
+- [x] Using Bootstrap for mobile friendliness
+- [x] 3rd party login
 
 ## Pages and navigation
 TBD. Pages and navigation depends on the finalized views, models and templates.
@@ -77,11 +62,9 @@ They will be added once we finalize those.
 ## Technological considerations
 
 ### Django apps in your Django project
-- [ ] Profile app
-- [ ] Friendship app
-- [ ] Events app
-- [ ] Discussions app
-- [ ] AJAX app **(It will handle all ajax functionalities)**
+- [x] user app
+- [x] friendship app
+- [x] discussions app
 
 ### Needed Django models and their attributes
 Here's our Entity Relationship Diagram for models:
@@ -100,7 +83,7 @@ Here's our Entity Relationship Diagram for models:
     - [x] profile.html
 
 ### Heroku deployment
-Dummy deployment is already done on Heroku at following URL
+Deployment is already done on Heroku at following URL
 **[Let Connect App for BWA028](https://let-connect.herokuapp.com/)**
 
 ## Testing
