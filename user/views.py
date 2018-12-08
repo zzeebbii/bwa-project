@@ -95,9 +95,9 @@ def profile(request):
     user_discussions = user_discussions.union(comment_discussions)
     discussions = Discussions.objects.filter(pk__in=user_discussions).all()
     # 2. Get all accepted friend requests
-    friends = user.req_from.filter(Q(is_accepted=True) & (Q(req_to=request.user) | Q(req_from=request.user))).all()
+    friends = Friendship.objects.filter(Q(is_accepted=True) & (Q(req_to=request.user) | Q(req_from=request.user))).all()
     # 3. Get all friend requests
-    friend_requests = user.req_to.filter(Q(is_accepted=False) & Q(req_to=request.user)).all()
+    friend_requests = Friendship.objects.filter(Q(is_accepted=False) & Q(req_to=request.user)).all()
 
     return render(request, 'profile_page.html',
                   {'friends': friends, 'friend_requests': friend_requests, 'discussions': discussions})
@@ -110,8 +110,8 @@ def profile_info(request, id):
     comment_discussions = user.discussioncomments_set.values_list('discussion_id', flat=True).all()
     user_discussions = user_discussions.union(comment_discussions)
     discussions = Discussions.objects.filter(pk__in=user_discussions)
-    friends = user.req_from.filter(Q(is_accepted=True) & (Q(req_to=id) | Q(req_from=id))).all()
-    pendings = user.req_from.filter(is_accepted=False).all()
+    friends = Friendship.objects.filter(Q(is_accepted=True) & (Q(req_to=request.user) | Q(req_from=request.user))).all()
+    pendings = Friendship.objects.filter(Q(is_accepted=False) & Q(req_from=request.user)).all()
     is_self = request.user.id == id
     is_friend = Friendship.objects.filter(
         Q(is_accepted=True) | (Q(req_from=request.user) | Q(req_to=request.user))).all()
