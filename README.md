@@ -155,7 +155,7 @@ Deployment is already done on Heroku at following URL
 
 | User Name | Password |
 | -------- | -------- |
-| Morvan | Temp/123 |
+| Morvan1 | Temp/123 |
 | Usama | Temp/123 |
 | zohaib | configure121 |
 | Irfan | Temp/123 |
