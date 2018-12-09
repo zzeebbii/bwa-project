@@ -85,7 +85,7 @@ Below given diagram shows overall working of system and navigation between pages
 Here's our Entity Relationship Diagram for models:
 
 
-![alt text](Documentation/ERD.jpeg)
+![alt text](Documentation/erd_updated.png)
 
 
 ### URIs
