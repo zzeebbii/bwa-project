@@ -22,7 +22,7 @@ For instructions on what to add under these headers, see the course project assi
 - [x] Use a virtual environment
 - [x] Validate all HTML & CSS
 - [x] Set **debug = false** at final deployment
-- [ ] Description of the web service data and functionality
+- [x] Description of the web service data and functionality
     - [x] **Users**
         - [x] Admin User
         - [x] Normal Users
@@ -49,6 +49,7 @@ For instructions on what to add under these headers, see the course project assi
 ### One star features
 - [x] Email validation on sign-up
 - [x] Use separate Django apps for different parts of your project
+- [x] Make users searchable, using Ajax
 
 ### Two Star features
 - [x] Use PostgreSQL as database
@@ -56,15 +57,23 @@ For instructions on what to add under these headers, see the course project assi
 - [x] 3rd party login
 
 ## Pages and navigation
-TBD. Pages and navigation depends on the finalized views, models and templates.
-They will be added once we finalize those.
+**Pages**
+ + Login Page (Login using username and password, goto signup page or login with Facebook)
+ + Signup Page (A signup confirmation link will be printed on console)
+ + Profile Page (Home Page. Participated discussions, friends and friends requests are visible here)
+ + Profile Info Page (Users info(private and public),Update or Delete Profile,friends,sent friend requests and discusions can be seen)
+ + Update Profile (Edit profile info using this page)
+ + Find Friends Page (Search friends with user name)
+ + All Discussions Page (All open discussions are visible here)
+ + Create Discussion Page (Initiate a new discussion here)
+ + Participate in Discussion Page (Comment on an existing discussion)
 
 ## Technological considerations
 
 ### Django apps in your Django project
-- [x] user app
-- [x] friendship app
-- [x] discussions app
+- [x] user app (Handles all User Profile functionality)
+- [x] friendship app (Handles all Friend requests functionality)
+- [x] discussions app (Handles all Discussions functionlaity)
 
 ### Needed Django models and their attributes
 Here's our Entity Relationship Diagram for models:
@@ -76,11 +85,52 @@ Here's our Entity Relationship Diagram for models:
 
 ### URIs
 - [x] https://let-connect.herokuapp.com/login
-- [x] https://let-connect.herokuapp.com/profile
+- [x] http://let-connect.herokuapp.com/user/signup
+- [x] http://let-connect.herokuapp.com/user/profile
+- [x] http://let-connect.herokuapp.com/user/profile/info/3
+- [x] http://let-connect.herokuapp.com/user/profile/edit
+- [x] http://let-connect.herokuapp.com/friendship/find
+- [x] http://let-connect.herokuapp.com/discussions/
+- [x] http://let-connect.herokuapp.com/discussions/create
+- [x] http://let-connect.herokuapp.com/discussions/view/1
+- [x] https://let-connect.herokuapp.com/logout
 ### Needed Django views and templates
-- [ ] **Views**
-    - [x] login.html
-    - [x] profile.html
+**Views**
+ + login_user
+ + logout_user
+ + signup
+ + account_activation_sent
+ + activate
+ + profile
+ + profile_info
+ + edit_profile
+ + delete_account
+ + find_friends
+ + list_friends
+ + friend_request
+ + accept_request
+ + unfriend
+ + show_discussions
+ + create_discussion
+ + view_discussion
+ + load_comments
+ + new_comment
+
+**Templates**
+ + signup.html
+ + login.html
+ + profile_page.html
+ + profile_info.html
+ + edit_profile.html
+ + account_activation_email.html
+ + account_activation_sent.html
+ + findfriend.html
+ + friend_list.html
+ + view.html
+ + discussions.html
+ + create.html
+ + comments.html
+
 
 ### Heroku deployment
 Deployment is already done on Heroku at following URL
