@@ -68,6 +68,12 @@ For instructions on what to add under these headers, see the course project assi
  + Create Discussion Page (Initiate a new discussion here)
  + Participate in Discussion Page (Comment on an existing discussion)
 
+**Navigation**
+
+Below given diagram shows overall working of system and navigation between pages.
+
+![alt text](Documentation/Navigation.jpg)
+
 ## Technological considerations
 
 ### Django apps in your Django project
@@ -81,7 +87,6 @@ Here's our Entity Relationship Diagram for models:
 
 ![alt text](Documentation/ERD.jpeg)
 
-**These models are not finalized. It will be updated as we add more features**
 
 ### URIs
 - [x] https://let-connect.herokuapp.com/login
