@@ -136,8 +136,31 @@ Here's our Entity Relationship Diagram for models:
 Deployment is already done on Heroku at following URL
 **[Let Connect App for BWA028](https://let-connect.herokuapp.com/)**
 
-## Testing
-**TBD**
+## Test Users
+
+**Admin Users**
+
+| User Name | Password |
+| --------  | -------- |
+| zohaib-super | @@WebFix99!! |
+| usama-super | Temp/123 |
+
+
+**Normal users**
+
+| User Name | Password |
+| -------- | -------- |
+| Morvan | Temp/123 |
+| Usama | Temp/123 |
+| zohaib | configure121 |
+| Irfan | Temp/123 |
+| Saad | Temp/123 |
+| waqas | Temp/123 |
+| Mehboob | Temp/123 |
+| Sami | Temp/123 |
+| Mikko | Temp/123 |
+| Ali | Temp/123 |
+
 ## Project timetable and division of work
 
 >>>
